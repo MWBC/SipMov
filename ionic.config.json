@@ -1,5 +1,7 @@
 {
   "name": "sipmov_frontend_updated",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
