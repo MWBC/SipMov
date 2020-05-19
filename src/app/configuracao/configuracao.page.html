@@ -1,9 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>configuracao</ion-title>
+  <!--sem alterar o navbar no momento-->
+  <ion-navbar color="secondary"> 
+  <ion-toolbar color="embCor">
+    <ion-title text-center>CONFIGURAÇÃO <ion-icon name="settings"></ion-icon></ion-title>
+    <ion-menu-toggle>
+    <ion-button>
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+  </ion-menu-toggle>
   </ion-toolbar>
+  </ion-navbar>
 </ion-header>
-
-<ion-content>
-
+<ion-content padding>
+  <div padding>
+    <ion-button color="secondary" expand="block" (click)="openTodoAlert();" ><ion-icon name="md-code-working"> Código</ion-icon></ion-button>
+  </div>
+  <div padding>
+  <ion-button color="primary" expand="block" (click)="alterarSenha()"><ion-icon name="md-key"> Alterar senha</ion-icon></ion-button>
+  </div>
 </ion-content>

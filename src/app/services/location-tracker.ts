@@ -1,8 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
-import { BackgroundGeolocation } from '@ionic-native/background-geolocation/ngx';
+import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
-
-import 'rxjs/add/operator/filter';
+import { Observable } from 'rxjs';
+import {filter} from 'rxjs/operators';
  
 @Injectable({
   providedIn: 'root'
@@ -19,14 +19,14 @@ export class LocationTracker {
  
 async startTracking() {
   // Rastreamento em segundo plano
-  let config = {
+  const config: BackgroundGeolocationConfig = {
     desiredAccuracy: 0,
     stationaryRadius: 20,
     distanceFilter: 10, 
    // debug: true,
     interval: 5000 
   };
-  await this.backgroundGeolocation.configure(config).subscribe((location) => {
+  await this.backgroundGeolocation.configure(config).then((location: BackgroundGeolocationResponse) => {
    // console.log('BackgroundGeolocation:  ' + location.latitude + ',' + location.longitude);
     // Executar atualização dentro da zona Angular
     this.zone.run(() => {
@@ -48,7 +48,7 @@ let options = {
   enableHighAccuracy: false
 };
  
-this.watch = this.geolocation.watchPosition(options).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
+this.watch = this.geolocation.watchPosition(options).pipe(filter((p: any) => p.code === undefined)).subscribe((position: Geoposition) => {
  
   //console.log(position);
  

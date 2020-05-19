@@ -1,17 +1,17 @@
-import { ConfiguracaoPage } from './configuracao/configuracao';
+import { ConfiguracaoPage } from './configuracao/configuracao.page';
 import { Component } from '@angular/core';
 
 import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { ListagemPage } from './listagem/listagem';
+import { ListagemPage } from './listagem/listagem.page';
 import { ViewChild } from '@angular/core';
-import { CodigoPage } from './codigo/codigo';
-import { LoginPage } from './login/login';
+import { CodigoPage } from './codigo/codigo.page';
+import { LoginPage } from './login/login.page';
 import { HomePage } from './home/home.page';
 import { IonNav, ToastController, AlertController } from '@ionic/angular';
-import { AddPage } from './add/add';
+import { AddPage } from './add/add.page';
 import { Storage } from '@ionic/storage';
 import { AuthProvider } from './services/auth/auth';
 import { Router } from '@angular/router';

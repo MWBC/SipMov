@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <br>
+  <ion-title text-center><h2>SIPMOV</h2></ion-title>
+  <hr>
+<ion-content padding>
+  <ion-label text-center color="secondary"><h1>LOGIN</h1></ion-label>
+  <ion-grid>
+  <form [formGroup]="formLogin">
+    <ion-item>
+      <ion-label position="stacked"><strong>E-mail Institucional</strong></ion-label>
+      <ion-input type="email" name="email" placeholder="informe o e-mail" formControlName="email" [(ngModel)]="item.myEmail" value="paula.carvalho@ipmfor.ce.gov.br"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"><strong>Senha</strong></ion-label>
+      <ion-input [type]="tipo ? 'text' : 'password'" name="password" placeholder="informe a senha" formControlName="password" value="12345"></ion-input>
+      <ion-button (click)="exibirOuOcultar()" ion-button color="secondary" slot="right">
+        <ion-icon [name]="tipo ? 'ios-eye-off' : 'eye'"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <br><br>
+    <ion-item>
+      <ion-buttons>
+        <ion-icon name="login"></ion-icon>
+        <ion-button color="secondary" expand="block" (click)="login();"><ion-icon name="log-in"> <strong>ENTRAR</strong></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-item>
+  </form>
+  </ion-grid>
+  <br>
+  <img  class="banner_image photoDiv"  width="150" height="100" src="assets/imgs/logo-ipm.png" alt="ponto data image">
 </ion-content>

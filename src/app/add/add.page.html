@@ -1,9 +1,129 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>add</ion-title>
-  </ion-toolbar>
+    <ion-menu-toggle>
+      <ion-button>
+        <!--botão de back para teste(testar depois se é possível remover)-->
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+          <ion-icon name="menu"></ion-icon>
+          <ion-title> Sipmov </ion-title>
+      </ion-button> 
+    </ion-menu-toggle>
+  </ion-toolbar> 
 </ion-header>
 
-<ion-content>
+<!-- <ion-header>
+  <ion-navbar color="success">
+      <ion-title>{{ pageTitle }} </ion-title>
+      <ion-buttons ion-button menuToggle>
+          <button ion-button icon-only (click)="close_edit()">
+              <ion-icon name="close"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header> -->
 
+<ion-content padding>
+  <!-- <img class="banner_image" src="assets/imgs/logo-ipm.png" width="70%" alt="ponto data image"> -->
+  <br><br>
+
+  <div>
+      <!--  <ion-item *ngIf="isEdited && !hideForm">
+    <button ion-item item-right color="primary" text-center block (click)="viewDetail({'id':recordId })">visualizar</button>
+  </ion-item> -->
+      <br><br>
+
+      <div *ngIf="hideForm">
+          <ion-item class="post-entry-message" text-wrap *ngIf="!isDeleted">
+              <br> <br>
+              <h1>Informações enviadas com sucesso.</h1>
+          </ion-item>
+          <ion-item class="post-entry-message" text-wrap *ngIf="isDeleted">
+              <br> <br>
+              <h1>Seus dados foram excluídos com sucesso.</h1>
+          </ion-item>
+      </div>
+
+      <div *ngIf="!hideForm">
+
+          <form [formGroup]="form" (ngSubmit)="savePonto()">
+
+              <ion-item-group>
+                  <!-- <ion-item-divider color="light">Imagem Facial (câmera celular) *</ion-item-divider> -->
+                  <ion-item>
+                      <img [src]="currentImage">
+                      <input type="hidden" name="image" formControlName="image" [(ngModel)]="pontoImage">
+                  </ion-item>
+                  <ion-item>
+                      <!--  <a ion-button item-right color="primary" style="height:8em" (click)="takePhotograph()">Camera</a> -->
+                      <ion-item button slot="end" color="primary" text-center expand="block" (click)="takePhotograph()"
+                          type="button">
+                          <ion-icon name="camera"></ion-icon> REGISTRAR
+                      </ion-item>
+                  </ion-item>
+
+              </ion-item-group>
+
+              <ion-item-group>
+                  <!-- <ion-item-divider color="light">GPS coordenada Geolocalização</ion-item-divider> -->
+
+                  <ion-item>
+                      <!-- <p>Latitude atual: {{locationTracker.lat}}</p>
+                      <p>Longitude atual: {{locationTracker.lng}}</p> -->
+                  </ion-item>
+              </ion-item-group>
+              <ion-item-group *ngIf="isEdited">
+                  <ion-item-divider color="light">Data da Criação: {{date}}</ion-item-divider>
+
+                  <ion-input type="text" [(ngModel)]="date" formControlName="date" style="display:none;"></ion-input>
+
+                  <ion-input type="text" [(ngModel)]="postid" formControlName="postid" style="display:none;">
+                  </ion-input>
+              </ion-item-group>
+
+              <ion-item-group style="display:none;">
+                  <ion-item-divider color="light"></ion-item-divider>
+                  <ion-item>
+                      <ion-input type="text" formControlName="userid" [(ngModel)]="pontoUserid" show-hide-input
+                          style="display:none;"></ion-input>
+
+                  </ion-item>
+              </ion-item-group>
+
+              <ion-item-group style="display:none;">
+                  <!--  <ion-item-divider color="light">Instituto de Previdência do Munícipio de Fortaleza.</ion-item-divider> -->
+                  <ion-item>
+                      <ion-input type="text" formControlName="codepath" [(ngModel)]="pontoCodepath"
+                          style="display:none;"></ion-input>
+
+                  </ion-item>
+              </ion-item-group>
+
+              <ion-item-group>
+                  <!-- <ion-item>
+                      <button ion-item color="primary" text-center item-left [disabled]="!form.valid" (click)="setUploadStatus('save')">Salvar Local Ponto do Auditor </button>
+                  </ion-item> -->
+                  <ion-item>
+                      <ion-item button color="secondary" text-center slot="end" (click)="setUploadStatus('upload')">
+                          <ion-icon name="locate"></ion-icon> SALVAR
+                      </ion-item>
+
+                  </ion-item>
+
+              </ion-item-group>
+
+              <ion-item-group>
+                  <ion-item>
+                  </ion-item>
+              </ion-item-group>
+              <ion-item-divider color="light"></ion-item-divider>
+          </form>
+          <ion-item-group>
+              <ion-item text-center>
+                  &copy; 2020 <br> Equipe de Desenvolvimento IPM
+              </ion-item>
+          </ion-item-group>
+      </div>
+  </div>
 </ion-content>

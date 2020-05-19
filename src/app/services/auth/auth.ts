@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import {JwtHelper} from "angular2-jwt";
-import 'rxjs/add/operator/map';
+import {map} from  'rxjs/operators';
+import {HTTP} from '@ionic-native/http/ngx'
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class AuthProvider {
     public alertCtrl: AlertController,
     private jwtHp : JwtHelper,
     private storage: Storage,
-    public http: HttpClient
+    public http: HTTP
   ){
     this.getStorageToken();
   }  
@@ -41,8 +42,8 @@ export class AuthProvider {
     //console.log(userData);
 //    let options = new RequestOptions({ headers: headers });
     let options = {headers: headers}
-    return this.http.post(this.urlBase + 'login', userData, options)
-    //.map(res => res.json());
+    return this.http.post(this.urlBase + 'login', userData, options);
+    //.pipe(map(res => res.json()));
   }
 
   logout() {

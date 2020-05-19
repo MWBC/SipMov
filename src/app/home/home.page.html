@@ -1,9 +1,76 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+  <!--sem alterar o navbar para toolbar no momento-->
+  <ion-navbar color="secondary"> 
+  <ion-toolbar color="embCor">
+    <ion-title text-center>IPM - DIGITAL </ion-title>
+    <ion-menu-toggle></ion-menu-toggle>
+    <ion-button>
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+  </ion-menu-toggle>
   </ion-toolbar>
+  </ion-navbar>
 </ion-header>
-
 <ion-content>
+  <img class="banner_image" src="assets/imgs/logo-ipm.png" alt="ponto data image">
+  <br><br>
+  <ion-grid>
+  <ion-row justify-content-center align-items-center>
+      <ion-card  col-2 col-8 col-2>
+          <ion-card-content>
+              <ion-button *ngIf="showStartTrackButton" ion-item color="primary" text-center (click)="startTrack();addPonto();fingerPrintDigital()" >
+                  <ion-icon name="finger-print"></ion-icon>
+                      <br><br>
+                      INICIAR
+              </ion-button>
+            </ion-card-content>
+      </ion-card>
+  </ion-row>
 
+  <ion-row justify-content-center align-items-center>
+  <ion-card  col-2 col-8 col-2>
+  <ion-button *ngIf="showStopTrackButton" ion-item color="danger" text-center (click)="stopTrack()">
+      <ion-icon name="arrow-dropleft-circle"></ion-icon><br><br>VOLTAR</ion-button>
+  </ion-card>
+  </ion-row>
+  </ion-grid>
+  <br>
+  <!-- <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate"></ion-datetime> -->
+  <!-- <ion-item text-center> -->
+      <!-- <p>Latitude atual: {{locationTracker.lat}}</p>
+      <p>Longitude atual: {{locationTracker.lng}}</p>
+      <p>Se você não ver os dados de localização, Ative no seu Celular.Obrigado.</p> -->
+      
+  <!-- </ion-item> -->
+      <ion-item-group>
+              <ion-item text-center>
+                  
+              </ion-item>
+               
+              <ion-item text-center>
+                &copy; 2020 <br> Equipe de Desenvolvimento IPM
+              </ion-item>
+      </ion-item-group>
+
+  <!-- <ion-list padding>
+
+      <ion-item *ngFor="let ponto of pontos ">
+          <ion-thumbnail item-left>
+              <img [src]="ponto.image">
+          </ion-thumbnail>
+          <ion-icon item-right name="play"></ion-icon> 
+          
+      </ion-item>
+  </ion-list>  -->
+
+
+  <!-- <ion-item-group> -->
+      <!-- <ion-item-divider color="light"> APP PONTO - IPM </ion-item-divider> -->
+     <!--  <ion-item> -->
+         <!--  <button ion-item color="dark" text-center block>IPM</button> -->
+      <!-- </ion-item> -->
+  <!-- </ion-item-group> -->
+
+  <!-- <br><br><br> -->
+  <!-- Desenvolvido por Antonio Carlos Franco.(FRANCO) -->
 </ion-content>

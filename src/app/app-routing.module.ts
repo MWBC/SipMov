@@ -1,14 +1,40 @@
 import { ListagemPageModule } from './listagem/listagem.module';
-import { AddPage } from './add/add';
-import { LoginPage } from './login/login';
-import { ListagemPage } from './listagem/listagem';
-import { DetailPage } from './detail/detail';
-import { CodigoPage } from './codigo/codigo';
+import { AddPage } from './add/add.page';
+import { LoginPage } from './login/login.page';
+import { ListagemPage } from './listagem/listagem.page';
+import { DetailPage } from './detail/detail.page';
+import { CodigoPage } from './codigo/codigo.page';
 import { HomePage } from './home/home.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  {
+    path: '', redirectTo: '/home', pathMatch: 'full'
+  },
+  {
+    path: 'home', loadChildren: './home/home.module#HomePageModule'
+  },
+  {
+    path: 'login', loadChildren: './login/login.module#LoginPageModule'
+  },
+  {
+    path: 'config', loadChildren: './configuracao/configuracao.module#ConfiguracaoPageModule'
+  },
+  {
+    path: 'store', loadChildren: './add/add.module#AddPageModule'
+  },
+  {
+    path: 'points', loadChildren: './listagem/listagem.module#ListagemPageModule'
+  },
+  {
+    path: 'config/code', loadChildren: './codigo/codigo.module#CodigoPageModule'
+  },
+  {
+    path: 'detail/:id', loadChildren: './detail/detail.module#DetailPageModule'
+  }
+];
+/*const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
@@ -72,7 +98,7 @@ const routes: Routes = [
     loadChildren: () => import('./add/add.module').then( m => m.AddPageModule)
   },
   
-];
+];*/
 
 @NgModule({
   imports: [

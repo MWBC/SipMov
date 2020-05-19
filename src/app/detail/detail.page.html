@@ -1,9 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>detail</ion-title>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>
+          Voltar Detalhes: {{pontoTitle}}
+      </ion-title>
+      <ion-buttons horizontal="end">
+          <ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
+  <!--<p>{{list}}</p>-->
+  <ion-list>
+     <!--  <ion-item>Titulo: {{pontoTitle}}</ion-item> -->
+      <!-- <ion-item>Auditor: {{pontoAuditor}}</ion-item> -->
+      <img [src]="pontoImage">
+      <!-- <ion-item>Local: {{pontoSpot}}</ion-item> -->
+      <!-- <ion-item>Observação: {{ pontoNote}}</ion-item> -->
+
+
+      <!-- <ion-item>Latitude atual: {{locationTracker.lat}}</ion-item>
+      <ion-item>Longitude atual: {{locationTracker.lat}}</ion-item> -->
+
+      <ion-item>Data da Criação: {{date}}</ion-item>
+
+  </ion-list>
 
 </ion-content>
+
+<ion-footer>
+  <!--sem alterar o navbar para toolbar no momento-->
+  <ion-navbar color="success">
+      <ion-toolbar>
+      </ion-toolbar>
+  </ion-navbar>
+</ion-footer>
