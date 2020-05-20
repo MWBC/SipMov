@@ -1,0 +1,42 @@
+// http://ionicframework.com/docs/theming/
+
+.photoDiv {
+    margin: auto;
+    box-align:center;
+    display: block;
+    width: 70%;
+    height: auto;
+}
+.photoImg {
+    margin: auto;
+    width: 32.5%;
+}
+
+// .content {
+//     background: #8bc9c5;
+// }  
+
+.menu-inner {
+    background-color: #007878;
+}
+
+.menuStyle {
+    background-color: #f8f6f6fd;
+}
+
+.actualPage {
+    border-left: 4px solid var(--ion-color-primary) !important;
+    background-color: #007878;
+}
+
+.fixToBottom {
+    margin-top: 100%;
+}
+//realce do side menu
+.activeHighLight {
+    background-color: #dcdcdc;
+}
+//aumentar o tamanho do espaço do select listagem
+.spaceSelect {
+    max-width: 100% !important;
+}

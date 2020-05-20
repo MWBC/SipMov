@@ -1,9 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>codigo</ion-title>
+<!-- <ion-header>
+  <ion-navbar color="secondary"> 
+  <ion-toolbar color="embCor">
+    <ion-title text-center>CÓDIGO DO AUDITOR <ion-icon name="code-working"></ion-icon></ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-toolbar>
+  </ion-navbar>
+</ion-header> -->
+<ion-header>
+  <ion-navbar color="secondary"> 
+      <ion-title text-center>CÓDIGO DO AUDITOR <ion-icon name="code-working"></ion-icon></ion-title>
+  </ion-navbar> 
 </ion-header>
+<ion-content padding>
+    <div *ngIf="!hideForm">
+        <form [formGroup]="form" (ngSubmit)="savePonto()">
+            <ion-item-group>
+                <ion-item>
+                    <ion-input type="text" placeholder="digite o código" formControlName="userid" [(ngModel)]="pontoUserid"></ion-input>
+                    
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>                 
+                <ion-item>
+                    <ion-input type="text" formControlName="codepath" [(ngModel)]="pontoCodepath" style="display:none;"></ion-input>
 
-<ion-content>
-
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+                <ion-buttons (ngSubmit)="savePonto()">
+                    <button ion-button color="primary"  block (click)="HomePonto()">Salvar </button>
+                </ion-buttons>                 
+            </ion-item-group>
+        </form>                
+    </div>
 </ion-content>

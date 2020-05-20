@@ -1,9 +1,83 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>listagem</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-menu-toggle>
+    <ion-button>
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+  </ion-menu-toggle>
+    <ion-row>
+      <ion-title>Meu Ponto</ion-title>
+      <ion-col text-right>
+			<ion-button *ngIf="!date" ion-button icon-only clear horizontal="end" (click)="pesquisaData()">      
+        <ion-icon name="search" color="light"></ion-icon>
+      </ion-button>
+    </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
+<div>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>Ano</ion-label>
+        <ion-select class="spaceSelect" [(ngModel)]="ano" name="ano" [selectOptions]="anoOptions">
+          <ion-option *ngFor="let ano of meuPonto?.anos; let i = index" [value]="ano[i]">{{ano.ano}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Mês</ion-label>
+        <ion-select class="spaceSelect" [(ngModel)]="mes" name="mes" [selectOptions]="mesOptions">
+          <ion-option *ngFor="let mes of monthNames; let i = index" [value]="mes[i]">{{mes.mes}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</div>
+
+<!-- <ion-item *ngFor="let ponto of meuPonto.posts | slice:0:1 ; index as i">
+  <div class = "row responsive-sm">
+    <div class = "col col-2">Mês {{ ponto.mes }}</div>
+  </div>
+</ion-item> -->
+
+<ion-list class="ion-padding-top">
+  <!-- <ion-row *ngIf="coutDay != '0'"> -->
+    <ion-row>
+    <ion-col>
+      <ion-item>
+        <div class = "row responsive-sm">
+          <div class = "col col-center">Total dias<br> {{ coutDay }}</div>
+        </div>
+      </ion-item >
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <div class = "row responsive-sm">
+          <div class = "col col-center">Total Horas/mês<br>{{ totalHours }}</div>
+        </div> 
+      </ion-item >
+    </ion-col>
+  </ion-row>
+
+  <ion-item *ngFor="let ponto of meuPonto.posts">
+    <div class = "row responsive-sm">
+      <div class = "col col-2">Dia<br> {{ ponto.dia }}</div>
+      <div class = "col">Entrada<br> {{ ponto.entrada }}</div>
+      <div class = "col">Saída<br> {{ ponto.saida }}</div>
+      <div class = "col">Hora/dia<br> {{ ponto.diferenca }}</div>
+    </div>
+  </ion-item>
+  
+</ion-list>
+
+<div *ngIf="meuPonto.posts?.length<=0" class="ion-padding-top">
+  <p class="semPonto ion-text-center">
+    Sem marcações disponíveis...
+  </p>
+</div>
 </ion-content>

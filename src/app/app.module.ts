@@ -1,18 +1,18 @@
 import { Network } from '@ionic-native/network/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { HomePageModule } from './home/home.module';
-import { ApiProvider } from './services/api/api';
+import { ApiProvider } from './services/api/api.service';
 import { JwtHelper } from 'angular2-jwt';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
-import { AuthProvider } from './services/auth/auth';
+import { AuthProvider } from './services/auth/auth.service';
 
 import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation/ngx';
-import { LocationTracker } from './services/location-tracker';
-import { Image } from './services/image';
-import { Database } from './services/database';
+import { LocationTracker } from './services/location-tracker.service';
+import { Image } from './services/image.service';
+import { Database } from './services/database.service';
 
 import { HomePage } from './home/home.page';
 import { ListagemPage } from './listagem/listagem.page';

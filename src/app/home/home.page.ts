@@ -1,10 +1,10 @@
 import { Router } from '@angular/router';
 import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
 import { AlertController, MenuController, IonNav, NavController } from '@ionic/angular';
-import { LocationTracker } from '../services/location-tracker';
+import { LocationTracker } from '../services/location-tracker.service';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { Database } from '../services/database';
+import { Database } from '../services/database.service';
 import { LoadingController } from '@ionic/angular';
 import { AddPage } from '../add/add.page';
 import { Component, ViewChild } from '@angular/core';

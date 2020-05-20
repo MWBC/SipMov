@@ -1,10 +1,10 @@
 import { ModalController } from '@ionic/angular';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, /*ViewController*/ } from '@ionic/angular';
-import { Database } from '../services/database';
+import { Database } from '../services/database.service';
 import { ElementRef, ViewChild } from '@angular/core';
 
-import { LocationTracker } from '../services/location-tracker';
+import { LocationTracker } from '../services/location-tracker.service';
 
 //import { Injectable, NgZone } from '@angular/core';
 
@@ -20,9 +20,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'page-detail',
-  templateUrl: 'detail.page.html'
+  templateUrl: './detail.page.html',
+  styleUrls: ['./detail.page.scss']
 })
-export class DetailPage {
+export class DetailPage implements OnInit{
 
   public pontoAuditor	 	: any;
    public pontoSpot 	: any;
@@ -42,7 +43,7 @@ export class DetailPage {
    //public view: ViewController,
   ) {}
 
-  ionViewDidLoad() {
+  ngOnInit() {
    // console.log('ionViewDidLoad DetailPage');
    //let id = this.navParams.get('id');
    let id = this.route.snapshot.paramMap.get('id');

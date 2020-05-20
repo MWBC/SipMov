@@ -4,12 +4,12 @@ import { HomePage } from '../home/home.page';
 
 import { NavController, NavParams, AlertController, ToastController, LoadingController, ModalController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Image } from '../services/image';
-import { Database } from '../services/database';
+import { Image } from '../services/image.service';
+import { Database } from '../services/database.service';
 //import { Transfer } from '@ionic-native/transfer';
 import {  FileTransferObject } from '@ionic-native/file-transfer';
 import { HttpClient } from '@angular/common/http';
-import { LocationTracker } from '../services/location-tracker';
+import { LocationTracker } from '../services/location-tracker.service';
 
 import { Storage } from '@ionic/storage';
 import { DetailPage } from '../detail/detail.page';
@@ -20,7 +20,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 //@IonicPage()
 @Component({
   selector: 'page-codigo',
-  templateUrl: 'codigo.page.html',
+  templateUrl: './codigo.page.html',
+  styleUrls: ['./codigo.page.scss']
 })
 export class CodigoPage {
 
@@ -353,7 +354,7 @@ export class CodigoPage {
     this.loading = await this.loadingCtrl.create({
       message: 'Enviando...',
     });
-    this.loading.present();
+    await this.loading.present();
 
     // Use the FileTransfer to upload the image
     fileTransfer.upload(targetPath, url, options).then(data => {

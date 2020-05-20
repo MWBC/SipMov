@@ -50,6 +50,7 @@
     "cordova-android-support-gradle-release": "^3.0.1",
     "cordova-plugin-advanced-http": "^2.4.1",
     "cordova-plugin-android-fingerprint-auth": "^1.5.0",
+    "cordova-plugin-background-geolocation": "^1.0.6",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.2",
@@ -88,6 +89,7 @@
     "@angular/compiler-cli": "~9.1.6",
     "@angular/language-service": "~9.1.6",
     "@ionic/angular-toolkit": "^2.1.1",
+    "@ionic/app-scripts": "^3.2.4",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -125,14 +127,11 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-statusbar": {},
-      "cordova-android-support-gradle-release": {
-        "ANDROID_SUPPORT_VERSION": "27.+"
-      },
       "cordova-plugin-compat": {},
       "cordova-plugin-android-fingerprint-auth": {},
       "@mauron85/cordova-plugin-background-geolocation": {
         "ICON": "@mipmap/ic_launcher",
-        "SMALL_ICON": "@mipmap/icon",
+        "SMALL_ICON": "@mipmap/ic_launcher",
         "ACCOUNT_NAME": "@string/app_name",
         "ACCOUNT_LABEL": "@string/app_name",
         "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
@@ -141,8 +140,8 @@
       "cordova-plugin-mauron85-background-geolocation": {
         "GOOGLE_PLAY_SERVICES_VERSION": "11+",
         "ANDROID_SUPPORT_LIBRARY_VERSION": "26+",
-        "ICON": "@mipmap/icon",
-        "SMALL_ICON": "@mipmap/icon",
+        "ICON": "@mipmap/ic_launcher",
+        "SMALL_ICON": "@mipmap/ic_launcher",
         "ACCOUNT_NAME": "@string/app_name",
         "ACCOUNT_LABEL": "@string/app_name",
         "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
@@ -150,6 +149,17 @@
       },
       "cordova-plugin-advanced-http": {
         "OKHTTP_VERSION": "3.10.0"
+      },
+      "cordova-plugin-background-geolocation": {
+        "ICON": "@mipmap/ic_launcher",
+        "SMALL_ICON": "@mipmap/ic_launcher",
+        "ACCOUNT_NAME": "@string/app_name",
+        "ACCOUNT_LABEL": "@string/app_name",
+        "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+        "CONTENT_AUTHORITY": "$PACKAGE_NAME"
+      },
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "28"
       }
     },
     "platforms": [

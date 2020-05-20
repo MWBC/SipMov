@@ -24,7 +24,7 @@
   </ion-navbar>
 </ion-header> -->
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <!-- <img class="banner_image" src="assets/imgs/logo-ipm.png" width="70%" alt="ponto data image"> -->
   <br><br>
 
@@ -35,11 +35,11 @@
       <br><br>
 
       <div *ngIf="hideForm">
-          <ion-item class="post-entry-message" text-wrap *ngIf="!isDeleted">
+          <ion-item class="post-entry-message ion-text-wrap" *ngIf="!isDeleted">
               <br> <br>
               <h1>Informações enviadas com sucesso.</h1>
           </ion-item>
-          <ion-item class="post-entry-message" text-wrap *ngIf="isDeleted">
+          <ion-item class="post-entry-message ion-text-wrap" *ngIf="isDeleted">
               <br> <br>
               <h1>Seus dados foram excluídos com sucesso.</h1>
           </ion-item>
@@ -57,7 +57,7 @@
                   </ion-item>
                   <ion-item>
                       <!--  <a ion-button item-right color="primary" style="height:8em" (click)="takePhotograph()">Camera</a> -->
-                      <ion-item button slot="end" color="primary" text-center expand="block" (click)="takePhotograph()"
+                      <ion-item button slot="end" color="primary" class="ion-text-center" expand="block" (click)="takePhotograph()"
                           type="button">
                           <ion-icon name="camera"></ion-icon> REGISTRAR
                       </ion-item>
@@ -105,7 +105,7 @@
                       <button ion-item color="primary" text-center item-left [disabled]="!form.valid" (click)="setUploadStatus('save')">Salvar Local Ponto do Auditor </button>
                   </ion-item> -->
                   <ion-item>
-                      <ion-item button color="secondary" text-center slot="end" (click)="setUploadStatus('upload')">
+                      <ion-item button color="secondary" class="ion-text-center" slot="end" (click)="setUploadStatus('upload')">
                           <ion-icon name="locate"></ion-icon> SALVAR
                       </ion-item>
 
@@ -120,7 +120,7 @@
               <ion-item-divider color="light"></ion-item-divider>
           </form>
           <ion-item-group>
-              <ion-item text-center>
+              <ion-item class="ion-text-center">
                   &copy; 2020 <br> Equipe de Desenvolvimento IPM
               </ion-item>
           </ion-item-group>

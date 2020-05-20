@@ -13,7 +13,7 @@ import { HomePage } from './home/home.page';
 import { IonNav, ToastController, AlertController } from '@ionic/angular';
 import { AddPage } from './add/add.page';
 import { Storage } from '@ionic/storage';
-import { AuthProvider } from './services/auth/auth';
+import { AuthProvider } from './services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -52,6 +52,7 @@ export class AppComponent {
       { title: 'Configuração', component: ConfiguracaoPage, icon: "home"}
     ];
     this.activePage = this.pages[1];
+    this.router.navigateByUrl('/login');
   }
 
   initializeApp() {

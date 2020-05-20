@@ -2,14 +2,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { /*Nav,*/ NavController, NavParams, AlertController, ToastController, LoadingController, /*Loading, ViewController,*/ ModalController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Image } from '../services/image';
-import { Database } from '../services/database';
+import { Image } from '../services/image.service';
+import { Database } from '../services/database.service';
 //import { Transfer } from '@ionic-native/transfer';
 import {  FileTransferObject } from '@ionic-native/file-transfer';
 import { HttpClient } from '@angular/common/http';
-import { LocationTracker } from '../services/location-tracker';
+import { LocationTracker } from '../services/location-tracker.service';
 
-import { AuthProvider } from '../services/auth/auth';
+import { AuthProvider } from '../services/auth/auth.service';
 import { Storage } from '@ionic/storage';
 import { DetailPage } from '../detail/detail.page';
 import { CodigoPage } from '../codigo/codigo.page';
@@ -27,7 +27,8 @@ import { LoginPage } from '../login/login.page';
 
 @Component({
   selector: 'page-add',
-  templateUrl: 'add.page.html'
+  templateUrl: './add.page.html',
+  styleUrls: ['./add.page.scss']
 
 })
 export class AddPage {

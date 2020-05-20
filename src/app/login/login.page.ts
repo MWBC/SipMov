@@ -1,12 +1,12 @@
 import { Router } from '@angular/router';
 import { NavParams, AlertController, ToastController, MenuController, IonNav } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AuthProvider } from '../services/auth/auth';
+import { AuthProvider } from '../services/auth/auth.service';
 import { NavController } from '@ionic/angular';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { Network } from '@ionic-native/network';
 import { AddPage } from '../add/add.page';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Storage } from "@ionic/storage";
 import { HomePage } from '../home/home.page';
 
@@ -17,7 +17,7 @@ import { HomePage } from '../home/home.page';
   styleUrls: ['./login.page.scss']
 })
 
-export class LoginPage {
+export class LoginPage implements OnInit {
   
   tipo: boolean;
   public formLogin: FormGroup;
@@ -48,7 +48,8 @@ export class LoginPage {
     });
   }
 
-  ionViewDidLoad() {
+  ngOnInit() {
+    
     console.log('ionViewDidLoad LoginPage');
   }
 

@@ -1,7 +1,7 @@
 import { IonicModule, IonNav, NavParams, ToastController, AlertController, NavController } from '@ionic/angular';
-import { AuthProvider } from '../services/auth/auth';
+import { AuthProvider } from '../services/auth/auth.service';
 import { CodigoPage } from '../codigo/codigo.page';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home.page';
 import { LoginPage } from '../login/login.page';
@@ -9,10 +9,11 @@ import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'page-configuracao',
-  templateUrl: 'configuracao.page.html',
+  templateUrl: './configuracao.page.html',
+  styleUrls: ['./configuracao.page.scss']
 })
 
-export class ConfiguracaoPage {
+export class ConfiguracaoPage implements OnInit{
 
   //@ViewChild('ionNav') ionNav: IonNav;
 
@@ -27,7 +28,7 @@ export class ConfiguracaoPage {
   ){
   }
 
-  ionViewDidLoad() {
+  ngOnInit() {
   }
 
   async openTodoAlert(){

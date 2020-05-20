@@ -2,7 +2,7 @@
   <!--sem alterar o navbar para toolbar no momento-->
   <ion-navbar color="secondary"> 
   <ion-toolbar color="embCor">
-    <ion-title text-center>IPM - DIGITAL </ion-title>
+    <ion-title class="ion-text-center">IPM - DIGITAL </ion-title>
     <ion-menu-toggle></ion-menu-toggle>
     <ion-button>
       <ion-icon name="menu"></ion-icon>
@@ -18,7 +18,7 @@
   <ion-row justify-content-center align-items-center>
       <ion-card  col-2 col-8 col-2>
           <ion-card-content>
-              <ion-button *ngIf="showStartTrackButton" ion-item color="primary" text-center (click)="startTrack();addPonto();fingerPrintDigital()" >
+              <ion-button *ngIf="showStartTrackButton" ion-item color="primary" class="ion-text-center" (click)="startTrack();addPonto();fingerPrintDigital()" >
                   <ion-icon name="finger-print"></ion-icon>
                       <br><br>
                       INICIAR
@@ -29,7 +29,7 @@
 
   <ion-row justify-content-center align-items-center>
   <ion-card  col-2 col-8 col-2>
-  <ion-button *ngIf="showStopTrackButton" ion-item color="danger" text-center (click)="stopTrack()">
+  <ion-button *ngIf="showStopTrackButton" ion-item color="danger" class="ion-text-center" (click)="stopTrack()">
       <ion-icon name="arrow-dropleft-circle"></ion-icon><br><br>VOLTAR</ion-button>
   </ion-card>
   </ion-row>
@@ -43,11 +43,11 @@
       
   <!-- </ion-item> -->
       <ion-item-group>
-              <ion-item text-center>
+              <ion-item class="text-center">
                   
               </ion-item>
                
-              <ion-item text-center>
+              <ion-item class="text-center">
                 &copy; 2020 <br> Equipe de Desenvolvimento IPM
               </ion-item>
       </ion-item-group>

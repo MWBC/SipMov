@@ -8,7 +8,7 @@ import { HomePage } from './home/home.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
+/*const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
   },
@@ -32,9 +32,10 @@ const routes: Routes = [
   },
   {
     path: 'detail/:id', loadChildren: './detail/detail.module#DetailPageModule'
-  }
-];
-/*const routes: Routes = [
+  },
+];*/
+
+const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
@@ -61,15 +62,15 @@ const routes: Routes = [
     loadChildren: () => import('./codigo/codigo.module').then(m => m.CodigoPageModule)
   },
   {
-    path: '/detail', 
+    path: 'detail', 
     loadChildren: () => import('./detail/detail.module').then(m => m.DetailPageModule)
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: '/login',
     pathMatch: 'full'
-  },
-  {
+  }
+  /*{
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
@@ -96,9 +97,9 @@ const routes: Routes = [
   {
     path: 'add',
     loadChildren: () => import('./add/add.module').then( m => m.AddPageModule)
-  },
+  },*/
   
-];*/
+];
 
 @NgModule({
   imports: [
