@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -11,10 +11,12 @@ import { LoginPage } from './login.page';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule, 
+    ReactiveFormsModule, 
     IonicModule,
     LoginPageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
+  providers: [FormBuilder]
 })
 export class LoginPageModule {}

@@ -1,5 +1,7 @@
-import { Network } from '@ionic-native/network/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
+import { LoginPageModule } from './login/login.module';
+import { Network } from '@ionic-native/network/ngx';
 import { HomePageModule } from './home/home.module';
 import { ApiProvider } from './services/api/api.service';
 import { JwtHelper } from 'angular2-jwt';
@@ -19,7 +21,6 @@ import { ListagemPage } from './listagem/listagem.page';
 import { DetailPage } from './detail/detail.page';
 import { CodigoPage } from './codigo/codigo.page';
 import { ConfiguracaoPage } from './configuracao/configuracao.page';
-import { LoginPage } from './login/login.page';
 import { AddPage } from './add/add.page';
 
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -31,6 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { IonicStorageModule } from '@ionic/storage';
+
 
 import { HttpClientModule } from '@angular/common/http'; 
 
@@ -46,7 +48,7 @@ import { AppRoutingModule } from './app-routing.module';
     CodigoPage,
     ConfiguracaoPage,
     ListagemPage,
-    LoginPage
+    
   ],
   entryComponents: [
     AppComponent, 
@@ -56,12 +58,13 @@ import { AppRoutingModule } from './app-routing.module';
     DetailPage,
     CodigoPage,
     ListagemPage,
-    LoginPage
+  
   ],
   imports: [
     BrowserModule, 
     AppRoutingModule, 
     HttpClientModule, 
+    LoginPageModule, 
     IonicModule.forRoot(), 
     /*RouterModule.forRoot([
       { path: 'home', loadChildren: './home/home.module#HomePageModule' },
@@ -90,7 +93,8 @@ import { AppRoutingModule } from './app-routing.module';
     AndroidFingerprintAuth,
     {provide: ErrorHandler, useClass: ErrorHandler}, Database, Image,
     AuthProvider,
-    ApiProvider
+    ApiProvider, 
+    HTTP
     ],
   bootstrap: [AppComponent] //AppComponent
 })

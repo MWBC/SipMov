@@ -8,13 +8,13 @@
   <form [formGroup]="formLogin">
     <ion-item>
       <ion-label position="stacked"><strong>E-mail Institucional</strong></ion-label>
-      <ion-input type="email" name="email" placeholder="informe o e-mail" formControlName="email" [(ngModel)]="item.myEmail" value="paula.carvalho@ipmfor.ce.gov.br"></ion-input>
+      <ion-input type="email" name="email" placeholder="informe o e-mail" formControlName="email"value="paula.carvalho@ipmfor.ce.gov.br"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"><strong>Senha</strong></ion-label>
       <ion-input [type]="tipo ? 'text' : 'password'" name="password" placeholder="informe a senha" formControlName="password" value="12345"></ion-input>
       <ion-button (click)="exibirOuOcultar()" ion-button color="secondary" slot="right">
-        <ion-icon [name]="tipo ? 'ios-eye-off' : 'eye'"></ion-icon>
+        <ion-icon [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
       </ion-button>
     </ion-item>
     <br><br>

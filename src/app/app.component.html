@@ -1,3 +1,23 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content" type="overlay" menuId="menuP">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title><h1>Menu</h1></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content  class="menuStyle">
+      <ion-list>
+        <ion-button menuClose class="menuStyle" ion-item *ngFor="let p of pages" [class.activeHighLight]="checkActive(p)" (click)="openPage(p)">
+          <br>
+        <h1>{{p.title}}</h1>
+        </ion-button>
+      </ion-list>
+      <div class="fixToBottom ion-padding">
+        <ion-button color="secondary" expand="block" (click)="logout();" ><ion-icon name="log-out"> <strong>SAIR</strong></ion-icon></ion-button>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <!--<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>-->
+  
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

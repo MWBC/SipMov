@@ -1,14 +1,15 @@
 import { Router } from '@angular/router';
-import { NavParams, AlertController, ToastController, MenuController, IonNav } from '@ionic/angular';
+import { /*NavParams*/AlertController, ToastController, MenuController, IonNav } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthProvider } from '../services/auth/auth.service';
 import { NavController } from '@ionic/angular';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
-import { Network } from '@ionic-native/network';
+import { Network } from '@ionic-native/network/ngx';
 import { AddPage } from '../add/add.page';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Storage } from "@ionic/storage";
 import { HomePage } from '../home/home.page';
+import { map } from 'rxjs/operators';
 
 //@IonicPage()
 @Component({
@@ -29,13 +30,13 @@ export class LoginPage implements OnInit {
   }
   
   constructor(
-    router: Router, 
+    public router: Router, 
     public alertCtrl: AlertController,
     public menuCtrl: MenuController,
     private httpLogin: AuthProvider,
     public navCtrl: NavController,
     private toast: ToastController,
-    public navParams: NavParams,
+   // public navParams: NavParams,
     private network: Network,
     public storage: Storage,
     public dialog: Dialogs,
@@ -97,10 +98,10 @@ export class LoginPage implements OnInit {
           //this.storage.set('Usuario Logado', this.item);
           if (resp) { 
             console.log(resp.status);
-            this.navCtrl.navigateRoot('/home');
+            this.router.navigateByUrl('/home');
           } else {
             console.log('Caiu no **Else: ')
-            this.navCtrl.navigateRoot('/login');
+            this.router.navigateByUrl('/login');
           }
         },e => {
           alert(e);

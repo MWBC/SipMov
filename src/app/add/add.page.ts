@@ -1,3 +1,4 @@
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 // Desenvolvido por Antonio Carlos Franco.
 import { Component, ViewChild } from '@angular/core';
 import { /*Nav,*/ NavController, NavParams, AlertController, ToastController, LoadingController, /*Loading, ViewController,*/ ModalController } from '@ionic/angular';
@@ -18,7 +19,6 @@ import { ConfiguracaoPage } from '../configuracao/configuracao.page';
 import { ListagemPage } from '../listagem/listagem.page';
 
 import { Platform } from '@ionic/angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { LoginPage } from '../login/login.page';
 
 //import { Geolocation } from '@ionic-native/geolocation';

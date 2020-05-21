@@ -25,10 +25,10 @@ export class AppComponent {
 
   //@ViewChild('ionNav') ionNav: IonNav;
 
-  rootPage:any = LoginPage;
+  //rootPage:any = LoginPage;
   activePage: any;
 
-  pages: Array<{title: string, component: any, icon: string}>;
+  pages: Array<{title: string, path: any, icon: string}>;
 
   constructor(
 
@@ -47,12 +47,12 @@ export class AppComponent {
 
     this.initializeApp();
     this.pages = [
-      { title: 'Listagem de Ponto', component: ListagemPage, icon: "home" },
-      { title: 'Bater o Ponto', component: HomePage, icon: "home" },
-      { title: 'Configuração', component: ConfiguracaoPage, icon: "home"}
+      { title: 'Listagem de Ponto', path: '/pontos', icon: 'home'},
+      { title: 'Bater o Ponto', path: '/home', icon: 'home' },
+      { title: 'Configuração', path: '/config', icon: 'home'}
     ];
     this.activePage = this.pages[1];
-    this.router.navigateByUrl('/login');
+    //this.router.navigateByUrl('login');
   }
 
   initializeApp() {
@@ -63,7 +63,7 @@ export class AppComponent {
   }
 
   openPage(page) {
-    this.navCtrl.navigateRoot(page.component);
+    this.router.navigateByUrl(page.path);
     this.activePage = page;
   }
   checkActive(page){
@@ -81,7 +81,7 @@ export class AppComponent {
   logout(){
     this.authProv.logout()
     .then(()=>{
-      this.navCtrl.navigateRoot('/login');
+      this.router.navigateByUrl('/login');
     })
   }
 

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 //https://forum.ionicframework.com/t/ionic-native-cannot-find-module-ionic-native/87875/2
 //import { Camera } from 'ionic-native';
 //import { Camera } from '@ionic-native/camera';
-import { Camera } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera/ngx';
 
 
 @Injectable({
