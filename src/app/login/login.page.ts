@@ -14,8 +14,8 @@ import { map } from 'rxjs/operators';
 //@IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss']
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss']
 })
 
 export class LoginPage implements OnInit {
@@ -89,15 +89,16 @@ export class LoginPage implements OnInit {
         'password': password
       }
       this.httpLogin.loginAuth(userData)
-      .then(
+      .subscribe(
         resp => {
-          console.log("token ", resp);
+          console.log("esse é o status ", resp['token']);
+          console.log("esse é o id do usuário: ", resp['user'].id);
           //salvando o token
-          sessionStorage.setItem("token", resp.data.token);
-          this.storage.set('token', resp.data.token);
+          sessionStorage.setItem("token", resp['token']);
+          this.storage.set('token', resp['token']);
           //this.storage.set('Usuario Logado', this.item);
           if (resp) { 
-            console.log(resp.status);
+            console.log(resp);
             this.router.navigateByUrl('/home');
           } else {
             console.log('Caiu no **Else: ')

@@ -30,7 +30,7 @@ export class AuthProvider {
     public alertCtrl: AlertController,
     private jwtHp : JwtHelper,
     private storage: Storage,
-    public http: HTTP
+    public http: HttpClient
   ){
     this.getStorageToken();
   }  
@@ -41,7 +41,7 @@ export class AuthProvider {
     headers.append('Authorization', 'Bearer ' + JSON.stringify(userData)); 
     //console.log(userData);
 //    let options = new RequestOptions({ headers: headers });
-    let options = {headers: headers}
+    let options = {headers: headers, responseType: 'json' as const};
     return this.http.post(this.urlBase + 'login', userData, options);
     //.pipe(map(res => res.json()));
   }
@@ -55,7 +55,7 @@ export class AuthProvider {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
     //let options = new RequestOptions({ headers: headers });
-    let options = {headers: headers}
+    let options = {headers: headers, responseType: 'json' as const}
     return this.http.post(this.urlBase + 'alterarSenha', userData, options)
  //   .map(res => res.json());    
   }
@@ -68,7 +68,7 @@ export class AuthProvider {
 
       if(token){
         console.log('AuthProvider ', this.userToken);
-        return this.userToken = token.token;
+        return this.userToken = token;
       }else{
         console.log('Token Vazio!', this.userToken);
         return this.userToken = '';

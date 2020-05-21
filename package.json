@@ -48,6 +48,7 @@
     "chokidar": "^3.4.0",
     "cordova-android": "^8.1.0",
     "cordova-android-support-gradle-release": "^3.0.1",
+    "cordova-browser": "6.0.0",
     "cordova-plugin-advanced-http": "^2.4.1",
     "cordova-plugin-android-fingerprint-auth": "^1.5.0",
     "cordova-plugin-background-geolocation": "^1.0.6",
@@ -71,6 +72,7 @@
     "cordova-sqlite-storage": "^5.0.0",
     "fibers": "^5.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "ionicons": "^5.0.1",
     "jwthelper": "0.0.4",
     "moment": "^2.25.3",
     "node-sass": "^4.14.1",
@@ -163,7 +165,8 @@
       }
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

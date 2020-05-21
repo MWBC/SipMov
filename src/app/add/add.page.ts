@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 // Desenvolvido por Antonio Carlos Franco.
 import { Component, ViewChild } from '@angular/core';
@@ -21,6 +22,7 @@ import { ListagemPage } from '../listagem/listagem.page';
 import { Platform } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
 
+import {map} from 'rxjs/operators';
 //import { Geolocation } from '@ionic-native/geolocation';
 
 //declare var cordova: any;
@@ -66,7 +68,9 @@ export class AddPage {
   public pontoCodepath;
 
   constructor(public navCtrl: NavController,
-    public NP: NavParams,
+    //public NP: NavParams,
+    public route: ActivatedRoute, 
+    public router: Router, 
     public fb: FormBuilder,
     public IMAGE: Image,
     public DB: Database,
@@ -84,7 +88,7 @@ export class AddPage {
     public modalCtrl: ModalController,
     private httpLogin: AuthProvider
 
-  ) {
+  ) {''
 
     //this.getGeo();
 
@@ -106,13 +110,21 @@ export class AddPage {
 
     this.resetFields();
 
-    if (NP.get("key") && NP.get("rev")) {
+    if(route.snapshot.paramMap.get('key') && route.snapshot.paramMap.get('rev')){
+
+      this.recordId = route.snapshot.paramMap.get('key');
+      this.revisionId = route.snapshot.paramMap.get('rev');
+      this.isEdited = true;
+      this.selectPonto(this.recordId);
+      this.pageTitle = 'Editar Auditor';
+    }
+    /*if (NP.get("key") && NP.get("rev")) {
       this.recordId = NP.get("key");
       this.revisionId = NP.get("rev");
       this.isEdited = true;
       this.selectPonto(this.recordId);
       this.pageTitle = 'Editar Auditor';
-    }
+    }*/
     else {
       this.storage.get('auditor').then((auditor) => {
         console.log('auditor is', auditor);
@@ -186,7 +198,7 @@ export class AddPage {
 
     var date = "";
 
-    var auditor: string = "Auditor de teste";//this.form.controls["auditor"].value;
+    var auditor: string = "Mais novo Auditor";//this.form.controls["auditor"].value;
     var title: string = "Teste"//this.form.controls["title"].value;
     var spot: string = "spot Teste";//this.form.controls["spot"].value;
     var image: string = this.form.controls["image"].value;

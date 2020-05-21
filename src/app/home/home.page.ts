@@ -89,10 +89,11 @@ export class HomePage {
   displayPontos() {
     this.DB.retrievePontos().then((data) => {
       this.pontos = data;
-      console.log('ponto data: ' + this.pontos[0].id);
+      console.log(this.pontos);
+      //console.log('ponto data: ' + this.pontos[0].id);
       this.loader.dismiss();
 
-    });
+    },).catch(error => console.log('erro ao recuperar pontos', error));
   }
 
   addPonto() {
@@ -104,7 +105,7 @@ export class HomePage {
   }
 
   HomePonto() {
-    this.navCtrl.navigateRoot('/home');
+    this.router.navigateByUrl('/home');
   }
 
   fingerPrintDigital(){

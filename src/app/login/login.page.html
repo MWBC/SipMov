@@ -5,27 +5,42 @@
 <ion-content class="ion-padding">
   <ion-label class="ion-text-center" color="secondary"><h1>LOGIN</h1></ion-label>
   <ion-grid>
-  <form [formGroup]="formLogin">
+  <form class="ion-padding"[formGroup]="formLogin">
     <ion-item>
-      <ion-label position="stacked"><strong>E-mail Institucional</strong></ion-label>
-      <ion-input type="email" name="email" placeholder="informe o e-mail" formControlName="email"value="paula.carvalho@ipmfor.ce.gov.br"></ion-input>
+      <ion-label color="medium" position="stacked"><strong>E-mail Institucional</strong></ion-label>
+      <ion-input type="email" name="email" placeholder="informe o e-mail" formControlName="email" value="paula.carvalho@ipmfor.ce.gov.br"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked"><strong>Senha</strong></ion-label>
+      <ion-label color="medium" position="stacked"><strong>Senha</strong></ion-label>
       <ion-input [type]="tipo ? 'text' : 'password'" name="password" placeholder="informe a senha" formControlName="password" value="12345"></ion-input>
-      <ion-button (click)="exibirOuOcultar()" ion-button color="secondary" slot="right">
+      <ion-button (click)="exibirOuOcultar()" ion-button color="secondary" slot="end">
         <ion-icon [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
       </ion-button>
     </ion-item>
     <br><br>
     <ion-item>
-      <ion-buttons>
+      <ion-col size="12">
+        <ion-button type="button" expand="full" fill="solid" color="secondary" (click)="login()"><ion-icon name=log-in></ion-icon> <strong>ENTRAR</strong></ion-button>
+
+      </ion-col>
+      <!--<ion-button color="secondary"  (click)="login();"><ion-icon name="log-in"> <strong>ENTRAR</strong></ion-icon></ion-button>-->
+      <!--<ion-button color="secondary" expand="block" fill="solid">Teste</ion-button>-->
+      <!--<ion-buttons>
+        
         <ion-icon name="login"></ion-icon>
-        <ion-button color="secondary" expand="block" (click)="login();"><ion-icon name="log-in"> <strong>ENTRAR</strong></ion-icon></ion-button>
-      </ion-buttons>
+        
+        <ion-button type="button" class="buttonEnviar" expand="full" fill="solid" size="large" color="secondary" (click)="login()"><ion-icon name=log-in></ion-icon> <strong>ENTRAR</strong></ion-button>
+      </ion-buttons>-->
     </ion-item>
   </form>
   </ion-grid>
   <br>
-  <img  class="banner_image photoDiv"  width="150" height="100" src="assets/imgs/logo-ipm.png" alt="ponto data image">
+  <img  class="banner_image ph'otoDiv" src="assets/imgs/logo-ipm.png" alt="ponto data image">
 </ion-content>
+<style>
+
+.buttonEnviar {
+
+--width: 100px;
+}
+</style>

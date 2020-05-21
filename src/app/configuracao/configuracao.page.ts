@@ -1,4 +1,4 @@
-import { IonicModule, IonNav, NavParams, ToastController, AlertController, NavController } from '@ionic/angular';
+import { IonicModule, IonNav, ToastController, AlertController, NavController } from '@ionic/angular';
 import { AuthProvider } from '../services/auth/auth.service';
 import { CodigoPage } from '../codigo/codigo.page';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -23,7 +23,7 @@ export class ConfiguracaoPage implements OnInit{
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     private authProv: AuthProvider, 
-    public navParams: NavParams,
+    //public navParams: NavParams,
     private storage: Storage,
   ){
   }
@@ -97,15 +97,15 @@ export class ConfiguracaoPage implements OnInit{
               undefined && dataUser.confirmNewPassword != undefined) {
               if(dataUser.newPassword === dataUser.confirmNewPassword){
                 this.authProv.resetPassword(dataUser)
-                .then(
+                .subscribe(
                   resp => {
-                    if (resp.data.success) {
-                      console.log('Resp: ', resp.data.success);
-                      this.presentToast(resp.data.success);                    
+                    if (resp) {
+                      console.log('Resp: ', resp);
+                      this.presentToast(resp);                    
                       this.navctrl.navigateRoot('/home');
                     } else {
                       console.log('Erro *Senha*', resp);
-                      this.presentToast(resp.error);
+                      this.presentToast(resp);
                       
                     } 
                   },e => {

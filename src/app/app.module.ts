@@ -1,3 +1,5 @@
+import { AddPageModule } from './add/add.module';
+import { ConfiguracaoPageModule } from './configuracao/configuracao.module';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { LoginPageModule } from './login/login.module';
@@ -16,12 +18,9 @@ import { LocationTracker } from './services/location-tracker.service';
 import { Image } from './services/image.service';
 import { Database } from './services/database.service';
 
-import { HomePage } from './home/home.page';
 import { ListagemPage } from './listagem/listagem.page';
 import { DetailPage } from './detail/detail.page';
 import { CodigoPage } from './codigo/codigo.page';
-import { ConfiguracaoPage } from './configuracao/configuracao.page';
-import { AddPage } from './add/add.page';
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -42,19 +41,13 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePage,
-    AddPage,
     DetailPage,
     CodigoPage,
-    ConfiguracaoPage,
     ListagemPage,
     
   ],
   entryComponents: [
     AppComponent, 
-    HomePage,
-    AddPage,
-    ConfiguracaoPage,
     DetailPage,
     CodigoPage,
     ListagemPage,
@@ -65,6 +58,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule, 
     HttpClientModule, 
     LoginPageModule, 
+    ConfiguracaoPageModule, 
+    AddPageModule, 
+    HomePageModule,  
     IonicModule.forRoot(), 
     /*RouterModule.forRoot([
       { path: 'home', loadChildren: './home/home.module#HomePageModule' },

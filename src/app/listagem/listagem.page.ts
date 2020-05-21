@@ -40,7 +40,7 @@ export class ListagemPage implements OnInit {
   constructor(
     public navCtrl: NavController, 
     private apiServ: ApiProvider,
-    public navParams: NavParams,
+    //public navParams: NavParams,
     private storage: Storage,
   ){
     // Inicializa a lista de ponto com a data hoje
