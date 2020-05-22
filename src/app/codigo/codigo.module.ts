@@ -1,6 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -11,9 +12,11 @@ import { CodigoPage } from './codigo.page';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule, 
+    ReactiveFormsModule, 
     IonicModule,
-    CodigoPageRoutingModule
+    CodigoPageRoutingModule, 
+    HttpClientModule
   ],
   declarations: [CodigoPage]
 })

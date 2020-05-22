@@ -1,4 +1,4 @@
-import { IonicModule, IonNav, ToastController, AlertController, NavController } from '@ionic/angular';
+import { ToastController, AlertController, NavController } from '@ionic/angular';
 import { AuthProvider } from '../services/auth/auth.service';
 import { CodigoPage } from '../codigo/codigo.page';
 import { Component, ViewChild, OnInit } from '@angular/core';

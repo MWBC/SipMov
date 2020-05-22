@@ -91,7 +91,7 @@ export class LoginPage implements OnInit {
       this.httpLogin.loginAuth(userData)
       .subscribe(
         resp => {
-          console.log("esse é o status ", resp['token']);
+          console.log("esse é o token ", resp['token']);
           console.log("esse é o id do usuário: ", resp['user'].id);
           //salvando o token
           sessionStorage.setItem("token", resp['token']);

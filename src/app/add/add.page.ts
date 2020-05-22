@@ -3,7 +3,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 // Desenvolvido por Antonio Carlos Franco.
 import { Component, ViewChild } from '@angular/core';
 import { /*Nav,*/ NavController, NavParams, AlertController, ToastController, LoadingController, /*Loading, ViewController,*/ ModalController } from '@ionic/angular';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Image } from '../services/image.service';
 import { Database } from '../services/database.service';
 //import { Transfer } from '@ionic-native/transfer';
@@ -29,8 +29,8 @@ import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'page-add',
-  templateUrl: './add.page.html',
-  styleUrls: ['./add.page.scss']
+  templateUrl: 'add.page.html',
+  styleUrls: ['add.page.scss']
 
 })
 export class AddPage {
@@ -112,6 +112,7 @@ export class AddPage {
 
     if(route.snapshot.paramMap.get('key') && route.snapshot.paramMap.get('rev')){
 
+      console.log('PASSOU NO IF DE ADD PAGE');
       this.recordId = route.snapshot.paramMap.get('key');
       this.revisionId = route.snapshot.paramMap.get('rev');
       this.isEdited = true;
@@ -196,6 +197,7 @@ export class AddPage {
 
   savePonto() {
 
+    console.log('DENTRO DE SAVEPONTO');
     var date = "";
 
     var auditor: string = "Mais novo Auditor";//this.form.controls["auditor"].value;
@@ -425,6 +427,7 @@ export class AddPage {
 
     }
 
+    console.log('ENVIAR PONTO PARA O BANCO');
     this.http.post(url2, obj).
 
       subscribe(data => {

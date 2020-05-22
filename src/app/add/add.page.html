@@ -3,9 +3,9 @@
     <ion-menu-toggle>
       <ion-button>
         <!--botão de back para teste(testar depois se é possível remover)-->
-        <ion-buttons slot="start">
+        <!--<ion-buttons slot="start">
           <ion-back-button></ion-back-button>
-        </ion-buttons>
+        </ion-buttons>-->
           <ion-icon name="menu"></ion-icon>
           <ion-title> Sipmov </ion-title>
       </ion-button> 
@@ -105,7 +105,7 @@
                       <button ion-item color="primary" text-center item-left [disabled]="!form.valid" (click)="setUploadStatus('save')">Salvar Local Ponto do Auditor </button>
                   </ion-item> -->
                   <ion-item>
-                      <ion-item button color="secondary" class="ion-text-center" slot="end" (click)="setUploadStatus('upload')">
+                      <ion-item button color="secondary" class="ion-text-center" slot="end" (click)="setUploadStatus('upload'); savePonto();">
                           <ion-icon name="locate"></ion-icon> SALVAR
                       </ion-item>
 

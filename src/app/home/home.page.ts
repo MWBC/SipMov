@@ -109,6 +109,7 @@ export class HomePage {
   }
 
   fingerPrintDigital(){
+    
   this.androidFingerprintAuth.isAvailable()
   .then((result)=> {
     if(result.isAvailable){

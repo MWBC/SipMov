@@ -1,8 +1,9 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { AddPage } from '../add/add.page';
-import { HomePage } from '../home/home.page';
+//import { AddPage } from '../add/add.page';
+//import { HomePage } from '../home/home.page';
 
-import { NavController, NavParams, AlertController, ToastController, LoadingController, ModalController } from '@ionic/angular';
+import { /*NavController,*/ /*NavParams,*/ AlertController, ToastController, LoadingController/*, ModalController*/ } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Image } from '../services/image.service';
 import { Database } from '../services/database.service';
@@ -12,10 +13,10 @@ import { HttpClient } from '@angular/common/http';
 import { LocationTracker } from '../services/location-tracker.service';
 
 import { Storage } from '@ionic/storage';
-import { DetailPage } from '../detail/detail.page';
+//import { DetailPage } from '../detail/detail.page';
 
 import { Platform } from '@ionic/angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 //@IonicPage()
 @Component({
@@ -55,8 +56,10 @@ export class CodigoPage {
   public pontoCodepath;
 
 
-  constructor(public navCtrl: NavController,
-    public NP: NavParams,
+  constructor(/*public navCtrl: NavController,*/
+    public route: ActivatedRoute, 
+    public router: Router, 
+    //public NP: NavParams,
     public fb: FormBuilder,
     public IMAGE: Image,
     public DB: Database,
@@ -67,11 +70,11 @@ export class CodigoPage {
     public locationTracker: LocationTracker,
     public storage: Storage,
     //public view: ViewController,
-    public view: ModalController, 
+//    public view: ModalController, 
     public platform: Platform,
     //public geolocation: Geolocation,
     public inAppBrowser: InAppBrowser,
-    public modalCtrl: ModalController
+  //  public modalCtrl: ModalController
 
   ) {
 
@@ -90,14 +93,15 @@ export class CodigoPage {
       "userid": [""],
       "website": [""],
       "codepath": [""],
-
+      
     });
 
     this.resetFields();
 
-    if (NP.get("key") && NP.get("rev")) {
-      this.recordId = NP.get("key");
-      this.revisionId = NP.get("rev");
+    if(route.snapshot.paramMap.get('key') && route.snapshot.paramMap.get('rev')){
+
+      this.recordId = route.snapshot.paramMap.get('key');
+      this.revisionId = route.snapshot.paramMap.get('rev');
       this.isEdited = true;
       this.selectPonto(this.recordId);
       this.pageTitle = 'Editar Auditor';
@@ -142,7 +146,7 @@ export class CodigoPage {
 
     this.hideForm = false;
     this.isEdited = true;
-    this.navCtrl.navigateForward('/detail', param);
+    this.router.navigate(['/detail', {param: param}]);
   }
 
 
@@ -423,9 +427,9 @@ export class CodigoPage {
 
   }
 
-  close_edit() {
+  /*close_edit() {
     this.view.dismiss();
-  }
+  }*/
 
   launch(url) {
 
@@ -440,7 +444,7 @@ export class CodigoPage {
   }
 
    HomePonto(){
-    this.navCtrl.navigateRoot('/home');
+    this.router.navigateByUrl('/home');
   }
 
 }

@@ -34,7 +34,7 @@ async startTracking() {
       this.lng = location.longitude;
     });
   }, (err) => { 
-    console.log(err); 
+    console.log("ERRO NO LOCATION TRACKER SERVICE service", err); 
   });
  
   // Ligar o sistema de geolocalização em segundo plano.
