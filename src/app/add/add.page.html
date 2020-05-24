@@ -1,15 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-menu-toggle>
-      <ion-button>
-        <!--botão de back para teste(testar depois se é possível remover)-->
-        <!--<ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>-->
-          <ion-icon name="menu"></ion-icon>
-          <ion-title> Sipmov </ion-title>
-      </ion-button> 
-    </ion-menu-toggle>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sipmov</ion-title>
   </ion-toolbar> 
 </ion-header>
 
@@ -53,7 +47,7 @@
                   <!-- <ion-item-divider color="light">Imagem Facial (câmera celular) *</ion-item-divider> -->
                   <ion-item>
                       <img [src]="currentImage">
-                      <input type="hidden" name="image" formControlName="image" [(ngModel)]="pontoImage">
+                      <input type="hidden" name="image" formControlName="image">
                   </ion-item>
                   <ion-item>
                       <!--  <a ion-button item-right color="primary" style="height:8em" (click)="takePhotograph()">Camera</a> -->
@@ -76,16 +70,16 @@
               <ion-item-group *ngIf="isEdited">
                   <ion-item-divider color="light">Data da Criação: {{date}}</ion-item-divider>
 
-                  <ion-input type="text" [(ngModel)]="date" formControlName="date" style="display:none;"></ion-input>
+                  <ion-input type="text" formControlName="date" style="display:none;"></ion-input>
 
-                  <ion-input type="text" [(ngModel)]="postid" formControlName="postid" style="display:none;">
+                  <ion-input type="text" formControlName="postid" style="display:none;">
                   </ion-input>
               </ion-item-group>
 
               <ion-item-group style="display:none;">
                   <ion-item-divider color="light"></ion-item-divider>
                   <ion-item>
-                      <ion-input type="text" formControlName="userid" [(ngModel)]="pontoUserid" show-hide-input
+                      <ion-input type="text" formControlName="userid" show-hide-input
                           style="display:none;"></ion-input>
 
                   </ion-item>
@@ -94,7 +88,7 @@
               <ion-item-group style="display:none;">
                   <!--  <ion-item-divider color="light">Instituto de Previdência do Munícipio de Fortaleza.</ion-item-divider> -->
                   <ion-item>
-                      <ion-input type="text" formControlName="codepath" [(ngModel)]="pontoCodepath"
+                      <ion-input type="text" formControlName="codepath"
                           style="display:none;"></ion-input>
 
                   </ion-item>

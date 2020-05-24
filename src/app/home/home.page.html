@@ -1,37 +1,40 @@
 <ion-header>
-  <!--sem alterar o navbar para toolbar no momento-->
-  <ion-navbar color="secondary"> 
-  <ion-toolbar color="embCor">
+  <ion-toolbar color="secondary">
     <ion-title class="ion-text-center">IPM - DIGITAL </ion-title>
-    <ion-menu-toggle>
-    <ion-button>
-      <ion-icon name="menu"></ion-icon>
-    </ion-button>
-  </ion-menu-toggle>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
-  </ion-navbar>
 </ion-header>
 <ion-content>
   <img class="banner_image" src="assets/imgs/logo-ipm.png" alt="ponto data image">
   <br><br>
   <ion-grid>
-  <ion-row justify-content-center align-items-center>
-      <ion-card  col-2 col-8 col-2>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+
+    <ion-col size="auto">
+      <ion-card *ngIf="showStartTrackButton">
           <ion-card-content>
-              <ion-button *ngIf="showStartTrackButton" ion-item color="primary" class="ion-text-center" (click)="startTrack();addPonto();fingerPrintDigital()" >
-                  <ion-icon name="finger-print"></ion-icon>
-                      <br><br>
-                      INICIAR
-              </ion-button>
+              <ion-item button color="primary" class="ion-text-center" (click)="startTrack();addPonto();fingerPrintDigital()">
+                <ion-label><ion-icon class="teste" name="finger-print"></ion-icon>
+                   <br><br> <h1>INICIAR</h1></ion-label>
+                  
+              </ion-item>
             </ion-card-content>
       </ion-card>
+    </ion-col>
   </ion-row>
 
-  <ion-row justify-content-center align-items-center>
-  <ion-card  col-2 col-8 col-2>
-  <ion-button *ngIf="showStopTrackButton" ion-item color="danger" class="ion-text-center" (click)="stopTrack()">
-      <ion-icon name="arrow-dropleft-circle"></ion-icon><br><br>VOLTAR</ion-button>
-  </ion-card>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-col size="auto">
+      <ion-card *ngIf="showStopTrackButton">
+        <ion-card-content>
+          <ion-item button color="danger" class="ion-text-center" (click)="stopTrack()">
+            <ion-label><ion-icon name="arrow-back-circle-sharp"></ion-icon>
+              <br><br><h1>VOLTAR</h1></ion-label></ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
   </ion-row>
   </ion-grid>
   <br>

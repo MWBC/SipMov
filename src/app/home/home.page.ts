@@ -42,13 +42,11 @@ export class HomePage {
     public menuCtrl: MenuController,
     public platform: Platform,
     public DB: Database,
-  ) {
-    this.menuCtrl.enable(true);
-  }
+  ) {  }
 
-  //testar se funcionou ion loading
   async ionViewWillEnter() {
 
+    this.menuCtrl.enable(true);
     this.loader = await this.loading.create({
       message: 'Carregamento de conteúdo...',
     });

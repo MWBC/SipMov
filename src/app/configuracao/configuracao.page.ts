@@ -1,10 +1,8 @@
 import { ToastController, AlertController, NavController } from '@ionic/angular';
 import { AuthProvider } from '../services/auth/auth.service';
-import { CodigoPage } from '../codigo/codigo.page';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home.page';
-import { LoginPage } from '../login/login.page';
 import { Route, Router } from '@angular/router';
 
 @Component({
@@ -23,7 +21,6 @@ export class ConfiguracaoPage implements OnInit{
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     private authProv: AuthProvider, 
-    //public navParams: NavParams,
     private storage: Storage,
   ){
   }
@@ -143,7 +140,7 @@ export class ConfiguracaoPage implements OnInit{
   erroPassword(){
     this.authProv.logout()
     .then(()=>{
-      this.navctrl.navigateRoot('/login');
+      this.router.navigateByUrl('/login');
     })
   }
 

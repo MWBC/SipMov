@@ -33,8 +33,8 @@
     margin-top: 100%;
 }
 //realce do side menu
-.activeHighLight {
-    background-color: #dcdcdc;
+ion-item.activeHighLight {
+    --background: #dcdcdc;
 }
 //aumentar o tamanho do espaço do select listagem
 .spaceSelect {

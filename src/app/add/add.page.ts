@@ -1,9 +1,7 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 // Desenvolvido por Antonio Carlos Franco.
 import { Component, ViewChild } from '@angular/core';
-import { /*Nav,*/ NavController, NavParams, AlertController, ToastController, LoadingController, /*Loading, ViewController,*/ ModalController } from '@ionic/angular';
-import { FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { /*Nav,*/ NavController, NavParams, AlertController, ToastController, LoadingController, ModalController } from '@ionic/angular';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Image } from '../services/image.service';
 import { Database } from '../services/database.service';
 //import { Transfer } from '@ionic-native/transfer';
@@ -13,14 +11,11 @@ import { LocationTracker } from '../services/location-tracker.service';
 
 import { AuthProvider } from '../services/auth/auth.service';
 import { Storage } from '@ionic/storage';
-import { DetailPage } from '../detail/detail.page';
-import { CodigoPage } from '../codigo/codigo.page';
-import { HomePage } from '../home/home.page';
-import { ConfiguracaoPage } from '../configuracao/configuracao.page';
-import { ListagemPage } from '../listagem/listagem.page';
+
+import { Router, ActivatedRoute } from '@angular/router';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { Platform } from '@ionic/angular';
-import { LoginPage } from '../login/login.page';
 
 import {map} from 'rxjs/operators';
 //import { Geolocation } from '@ionic-native/geolocation';
@@ -34,7 +29,6 @@ import {map} from 'rxjs/operators';
 
 })
 export class AddPage {
-  //@ViewChild(Nav) nav: Nav;
 
   public todos = [];
 
@@ -52,7 +46,7 @@ export class AddPage {
   public isDeleted: boolean = false;
   public hideForm: boolean = false;
   public pageTitle: string;
-  //public loading: Loading;
+
   public uploadStatus: string = 'empty';
 
   public lastImage: string = null;
@@ -112,7 +106,6 @@ export class AddPage {
 
     if(route.snapshot.paramMap.get('key') && route.snapshot.paramMap.get('rev')){
 
-      console.log('PASSOU NO IF DE ADD PAGE');
       this.recordId = route.snapshot.paramMap.get('key');
       this.revisionId = route.snapshot.paramMap.get('rev');
       this.isEdited = true;
@@ -197,7 +190,6 @@ export class AddPage {
 
   savePonto() {
 
-    console.log('DENTRO DE SAVEPONTO');
     var date = "";
 
     var auditor: string = "Mais novo Auditor";//this.form.controls["auditor"].value;
@@ -427,7 +419,6 @@ export class AddPage {
 
     }
 
-    console.log('ENVIAR PONTO PARA O BANCO');
     this.http.post(url2, obj).
 
       subscribe(data => {

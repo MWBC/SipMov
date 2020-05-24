@@ -1,5 +1,36 @@
 <ion-app>
-  <ion-menu contentId="main-content" type="overlay" menuId="menuP">
+
+  <ion-menu side="start" contentId="main-content" type="overlay" menuId="menuP">
+
+    <ion-header>
+
+      <ion-toolbar>
+
+        <ion-title><h1>Menu</h1></ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+      <ion-list>
+
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+
+          <ion-item button (click)="openPage(p)" [class.activeHighLight]="checkActive(p)">
+
+            <ion-label><h1>{{p.title}}</h1></ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+      </ion-list>
+
+      <div class="fixToBottom ion-padding">
+
+        <ion-button color="secondary" expand="block" (click)="logout();"><ion-icon name="log-out"></ion-icon><strong>SAIR</strong></ion-button>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <!--<ion-menu contentId="main-content" type="overlay" menuId="menuP">
     <ion-header>
       <ion-toolbar>
         <ion-title><h1>Menu</h1></ion-title>

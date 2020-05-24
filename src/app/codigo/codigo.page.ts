@@ -1,9 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
-//import { AddPage } from '../add/add.page';
-//import { HomePage } from '../home/home.page';
 
-import { /*NavController,*/ /*NavParams,*/ AlertController, ToastController, LoadingController/*, ModalController*/ } from '@ionic/angular';
+import { AlertController, ToastController, LoadingController/*, ModalController*/ } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Image } from '../services/image.service';
 import { Database } from '../services/database.service';
@@ -13,12 +11,11 @@ import { HttpClient } from '@angular/common/http';
 import { LocationTracker } from '../services/location-tracker.service';
 
 import { Storage } from '@ionic/storage';
-//import { DetailPage } from '../detail/detail.page';
+
 
 import { Platform } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
-//@IonicPage()
 @Component({
   selector: 'page-codigo',
   templateUrl: './codigo.page.html',
@@ -56,10 +53,8 @@ export class CodigoPage {
   public pontoCodepath;
 
 
-  constructor(/*public navCtrl: NavController,*/
-    public route: ActivatedRoute, 
+  constructor(public route: ActivatedRoute, 
     public router: Router, 
-    //public NP: NavParams,
     public fb: FormBuilder,
     public IMAGE: Image,
     public DB: Database,
@@ -69,7 +64,6 @@ export class CodigoPage {
     public http: HttpClient,
     public locationTracker: LocationTracker,
     public storage: Storage,
-    //public view: ViewController,
 //    public view: ModalController, 
     public platform: Platform,
     //public geolocation: Geolocation,

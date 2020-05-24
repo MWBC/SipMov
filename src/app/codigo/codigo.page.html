@@ -9,30 +9,39 @@
   </ion-navbar>
 </ion-header> -->
 <ion-header>
-  <ion-navbar color="secondary"> 
+  <ion-toolbar class="ion-text-center" color="secondary"> 
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
       <ion-title text-center>CÓDIGO DO AUDITOR <ion-icon name="code-working"></ion-icon></ion-title>
-  </ion-navbar> 
+  </ion-toolbar> 
 </ion-header>
 <ion-content class="ion-padding">
     <div *ngIf="!hideForm">
-        <form [formGroup]="form" (ngSubmit)="savePonto()">
-            <ion-item-group>
-                <ion-item>
-                    <ion-input type="text" placeholder="digite o código" formControlName="userid" [(ngModel)]="pontoUserid"></ion-input>
+        <ion-grid>
+            <form [formGroup]="form" (ngSubmit)="savePonto()">                    
+                <ion-item-group>
+                    <ion-item>
+                        <ion-input type="text" placeholder="digite o código" formControlName="userid"></ion-input>
+                        
+                    </ion-item>
+                    <ion-item>
+                        <ion-col size="12">
+                            <ion-button color="primary" expand="full" fill="solid" routerLink="/home"routerDirection="root">Salvar </ion-button>
+                        </ion-col>
+                    </ion-item>
+                
+                </ion-item-group>
+            
+                <ion-item-group style="display: none;">                 
+                    <ion-item>
+                        <ion-input type="text" formControlName="codepath" style="display:none;"></ion-input>
+                    </ion-item>
                     
-                </ion-item>
-            </ion-item-group>
-            <ion-item-group>                 
-                <ion-item>
-                    <ion-input type="text" formControlName="codepath" [(ngModel)]="pontoCodepath" style="display:none;"></ion-input>
 
-                </ion-item>
-            </ion-item-group>
-            <ion-item-group>
-                <ion-buttons (ngSubmit)="savePonto()">
-                    <button ion-button color="primary"  block (click)="HomePonto()">Salvar </button>
-                </ion-buttons>                 
-            </ion-item-group>
-        </form>                
+                </ion-item-group>
+            
+            </form>   
+    </ion-grid>             
     </div>
 </ion-content>

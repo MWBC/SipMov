@@ -1,6 +1,6 @@
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, /*ViewController*/ } from '@ionic/angular';
+import { NavController, NavParams } from '@ionic/angular';
 import { Database } from '../services/database.service';
 import { ElementRef, ViewChild } from '@angular/core';
 
@@ -40,7 +40,7 @@ export class DetailPage implements OnInit{
   public navParams: NavParams,
   public DB       	: Database,
   public view: ModalController
-   //public view: ViewController,
+   
   ) {}
 
   ngOnInit() {

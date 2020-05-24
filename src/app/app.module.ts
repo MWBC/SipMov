@@ -1,3 +1,6 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { CodigoPageModule } from './codigo/codigo.module';
+import { DetailPageModule } from './detail/detail.module';
 import { AddPageModule } from './add/add.module';
 import { ConfiguracaoPageModule } from './configuracao/configuracao.module';
 import { HTTP } from '@ionic-native/http/ngx';
@@ -18,10 +21,6 @@ import { LocationTracker } from './services/location-tracker.service';
 import { Image } from './services/image.service';
 import { Database } from './services/database.service';
 
-import { ListagemPage } from './listagem/listagem.page';
-import { DetailPage } from './detail/detail.page';
-import { CodigoPage } from './codigo/codigo.page';
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
@@ -40,18 +39,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DetailPage,
-    CodigoPage,
-    ListagemPage,
-    
+    AppComponent
   ],
   entryComponents: [
-    AppComponent, 
-    DetailPage,
-    CodigoPage,
-    ListagemPage,
-  
+    AppComponent
   ],
   imports: [
     BrowserModule, 
@@ -60,7 +51,10 @@ import { AppRoutingModule } from './app-routing.module';
     LoginPageModule, 
     ConfiguracaoPageModule, 
     AddPageModule, 
-    HomePageModule,  
+    HomePageModule, 
+    DetailPageModule, 
+    CodigoPageModule, 
+    ReactiveFormsModule, 
     IonicModule.forRoot(), 
     /*RouterModule.forRoot([
       { path: 'home', loadChildren: './home/home.module#HomePageModule' },

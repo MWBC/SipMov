@@ -1,17 +1,14 @@
 import { Router } from '@angular/router';
-import { /*NavParams*/AlertController, ToastController, MenuController, IonNav } from '@ionic/angular';
+import { AlertController, ToastController, MenuController, IonNav } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthProvider } from '../services/auth/auth.service';
 import { NavController } from '@ionic/angular';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { Network } from '@ionic-native/network/ngx';
-import { AddPage } from '../add/add.page';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Storage } from "@ionic/storage";
-import { HomePage } from '../home/home.page';
 import { map } from 'rxjs/operators';
 
-//@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.page.html',
@@ -36,13 +33,12 @@ export class LoginPage implements OnInit {
     private httpLogin: AuthProvider,
     public navCtrl: NavController,
     private toast: ToastController,
-   // public navParams: NavParams,
     private network: Network,
     public storage: Storage,
     public dialog: Dialogs,
     public fb: FormBuilder,
   ){
-    this.menuCtrl.enable(false);
+    
      this.formLogin = fb.group({
       "email": ["", Validators.required],
       "password": ["", Validators.required],
@@ -52,6 +48,11 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  ionViewWillEnter(){
+
+    this.menuCtrl.enable(false);
   }
 
   async displayNetworkUpdate(connectionState: string){
