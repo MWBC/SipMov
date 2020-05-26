@@ -4,7 +4,7 @@ import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { IonNav, ToastController, AlertController } from '@ionic/angular';
+import { ToastController, AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AuthProvider } from './services/auth/auth.service';
 import { Router } from '@angular/router';
@@ -15,8 +15,6 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
-  //@ViewChild('ionNav') ionNav: IonNav;
 
   //rootPage:any = LoginPage;
   activePage: any;

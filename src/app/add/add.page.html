@@ -43,19 +43,27 @@
 
           <form [formGroup]="form" (ngSubmit)="savePonto()">
 
+            <ion-grid>
+                
               <ion-item-group>
                   <!-- <ion-item-divider color="light">Imagem Facial (câmera celular) *</ion-item-divider> -->
+                  
                   <ion-item>
                       <img [src]="currentImage">
                       <input type="hidden" name="image" formControlName="image">
                   </ion-item>
+                
+                  
                   <ion-item>
                       <!--  <a ion-button item-right color="primary" style="height:8em" (click)="takePhotograph()">Camera</a> -->
-                      <ion-item button slot="end" color="primary" class="ion-text-center" expand="block" (click)="takePhotograph()"
+                      <ion-col size="12">
+                      <ion-item button color="primary" (click)="takePhotograph()"
                           type="button">
-                          <ion-icon name="camera"></ion-icon> REGISTRAR
+                          <ion-label class="ion-text-center"><ion-icon name="camera"></ion-icon> REGISTRAR</ion-label>
                       </ion-item>
+                    </ion-col>
                   </ion-item>
+                
 
               </ion-item-group>
 
@@ -99,10 +107,11 @@
                       <button ion-item color="primary" text-center item-left [disabled]="!form.valid" (click)="setUploadStatus('save')">Salvar Local Ponto do Auditor </button>
                   </ion-item> -->
                   <ion-item>
-                      <ion-item button color="secondary" class="ion-text-center" slot="end" (click)="setUploadStatus('upload'); savePonto();">
-                          <ion-icon name="locate"></ion-icon> SALVAR
+                      <ion-col size="12">
+                      <ion-item button color="secondary" (click)="setUploadStatus('upload'); savePonto();">
+                          <ion-label class="ion-text-center"><ion-icon name="locate"></ion-icon> SALVAR</ion-label>
                       </ion-item>
-
+                    </ion-col>
                   </ion-item>
 
               </ion-item-group>
@@ -112,10 +121,11 @@
                   </ion-item>
               </ion-item-group>
               <ion-item-divider color="light"></ion-item-divider>
+            </ion-grid>
           </form>
           <ion-item-group>
               <ion-item class="ion-text-center">
-                  &copy; 2020 <br> Equipe de Desenvolvimento IPM
+                  <ion-label>&copy; 2020 <br> Equipe de Desenvolvimento IPM</ion-label>
               </ion-item>
           </ion-item-group>
       </div>

@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
-import { AlertController, MenuController, IonNav, NavController } from '@ionic/angular';
+import { AlertController, MenuController, NavController } from '@ionic/angular';
 import { LocationTracker } from '../services/location-tracker.service';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
@@ -19,8 +19,6 @@ declare var cordova: any;
 })
 
 export class HomePage {
-
-  //@ViewChild('ionNav') ionNav: IonNav;
 
   public hasPontos: boolean = false;
   public pontos: any;
@@ -87,7 +85,7 @@ export class HomePage {
   displayPontos() {
     this.DB.retrievePontos().then((data) => {
       this.pontos = data;
-      console.log(this.pontos);
+      console.log('pontos: ', this.pontos);
       //console.log('ponto data: ' + this.pontos[0].id);
       this.loader.dismiss();
 
