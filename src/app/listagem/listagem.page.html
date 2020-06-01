@@ -9,15 +9,7 @@
         <ion-icon name="search"></ion-icon>
       </ion-button>
     </ion-buttons>
-
-    <!--<ion-row>
-      <ion-title>Meu Ponto</ion-title>
-      <ion-col class="text-end">
-			<ion-button *ngIf="!date" ion-button icon-only clear horizontal="end" (click)="pesquisaData()">      
-        <ion-icon name="search" color="light"></ion-icon>
-      </ion-button>
-    </ion-col>
-    </ion-row>-->
+    
   </ion-toolbar>
 </ion-header>
 
@@ -29,7 +21,7 @@
       <ion-item>
         <ion-label>Ano</ion-label>
         <ion-select class="spaceSelect" [(ngModel)]="ano" name="ano" [selectOptions]="anoOptions">
-          <ion-option *ngFor="let ano of meuPonto?.anos; let i = index" [value]="ano[i]">{{ano.ano}}</ion-option>
+          <ion-select-option *ngFor="let ano of meuPonto?.anos; let i = index" [value]="ano[i]">{{ano.ano}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -37,7 +29,7 @@
       <ion-item>
         <ion-label>Mês</ion-label>
         <ion-select class="spaceSelect" [(ngModel)]="mes" name="mes" [selectOptions]="mesOptions">
-          <ion-option *ngFor="let mes of monthNames; let i = index" [value]="mes[i]">{{mes.mes}}</ion-option>
+          <ion-select-option *ngFor="let mes of monthNames; let i = index" [value]="mes[i]">{{mes.mes}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>

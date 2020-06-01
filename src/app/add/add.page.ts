@@ -1,10 +1,10 @@
 // Desenvolvido por Antonio Carlos Franco.
 import { Component, ViewChild } from '@angular/core';
-import { /*Nav,*/ NavController, NavParams, AlertController, ToastController, LoadingController, ModalController } from '@ionic/angular';
+import { NavController, NavParams, AlertController, ToastController, LoadingController, ModalController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Image } from '../services/image.service';
 import { Database } from '../services/database.service';
-//import { Transfer } from '@ionic-native/transfer';
+
 import {  FileTransferObject } from '@ionic-native/file-transfer';
 import { HttpClient } from '@angular/common/http';
 import { LocationTracker } from '../services/location-tracker.service';
@@ -16,11 +16,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { Platform } from '@ionic/angular';
-
-import {map} from 'rxjs/operators';
-//import { Geolocation } from '@ionic-native/geolocation';
-
-//declare var cordova: any;
 
 @Component({
   selector: 'page-add',
@@ -62,7 +57,7 @@ export class AddPage {
   public pontoCodepath;
 
   constructor(public navCtrl: NavController,
-    //public NP: NavParams,
+  
     public route: ActivatedRoute, 
     public router: Router, 
     public fb: FormBuilder,
@@ -74,17 +69,13 @@ export class AddPage {
     public http: HttpClient,
     public locationTracker: LocationTracker,
     public storage: Storage,
-    //public view: ViewController,
     public view: ModalController, 
     public platform: Platform,
-    //public geolocation: Geolocation,
     public inAppBrowser: InAppBrowser,
     public modalCtrl: ModalController,
     private httpLogin: AuthProvider
 
-  ) {''
-
-    //this.getGeo();
+  ) {
 
     this.form = fb.group({
       "auditor": [""],
@@ -112,13 +103,7 @@ export class AddPage {
       this.selectPonto(this.recordId);
       this.pageTitle = 'Editar Auditor';
     }
-    /*if (NP.get("key") && NP.get("rev")) {
-      this.recordId = NP.get("key");
-      this.revisionId = NP.get("rev");
-      this.isEdited = true;
-      this.selectPonto(this.recordId);
-      this.pageTitle = 'Editar Auditor';
-    }*/
+
     else {
       this.storage.get('auditor').then((auditor) => {
         console.log('auditor is', auditor);
@@ -203,7 +188,7 @@ export class AddPage {
     var lng = this.locationTracker.lng;
     date = this.form.controls["date"].value;
     var postid = this.form.controls["postid"].value;
-    var userid = "test123";//this.form.controls["userid"].value;
+    var userid = "yprkc";//this.form.controls["userid"].value;
     var website = this.form.controls["website"].value;
     var codepath = this.form.controls["codepath"].value;
     

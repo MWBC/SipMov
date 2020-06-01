@@ -25,9 +25,8 @@ export class ApiProvider {
   }
 
   getPointsList(cod, date){
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
     //this.storage.set('Bearer', this.userToken);
     //let options = new RequestOptions({ headers: headers });
     let options = {headers: headers}
@@ -37,10 +36,8 @@ export class ApiProvider {
 
   getDataMe(userToken){
     // console.log('listagem ok!')
-    // console.log(userToken)
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+    const headers: HttpHeaders = new HttpHeaders().set('Authorization', 'Bearer ' + userToken).set('Content-Type', 'application/json').set('Accept', 'application/json');
+    console.log('token do usuario: ', userToken); 
     //this.storage.set('Bearer', this.userToken);
     //let options = new RequestOptions({ headers: headers });
     let options = {headers: headers}

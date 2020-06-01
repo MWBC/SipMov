@@ -36,9 +36,7 @@ export class AuthProvider {
   }  
 
    loginAuth(userData){
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + JSON.stringify(userData)); 
+    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + JSON.stringify(userData)); 
     //console.log(userData);
 //    let options = new RequestOptions({ headers: headers });
     let options = {headers: headers, responseType: 'json' as const};
@@ -51,9 +49,8 @@ export class AuthProvider {
   }
 
   resetPassword(userData){  
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
     //let options = new RequestOptions({ headers: headers });
     let options = {headers: headers, responseType: 'json' as const}
     return this.http.post(this.urlBase + 'alterarSenha', userData, options)

@@ -9,6 +9,7 @@ import { LoadingController } from '@ionic/angular';
 import { AddPage } from '../add/add.page';
 import { Component, ViewChild } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { Storage } from "@ionic/storage";
 
 declare var cordova: any;
 
@@ -40,6 +41,7 @@ export class HomePage {
     public menuCtrl: MenuController,
     public platform: Platform,
     public DB: Database,
+    public storage: Storage
   ) {  }
 
   async ionViewWillEnter() {

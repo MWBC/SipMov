@@ -1,13 +1,12 @@
 import { Router } from '@angular/router';
-import { AlertController, ToastController, MenuController, IonNav } from '@ionic/angular';
+import { AlertController, ToastController, MenuController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthProvider } from '../services/auth/auth.service';
 import { NavController } from '@ionic/angular';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Storage } from "@ionic/storage";
-import { map } from 'rxjs/operators';
+import { Storage } from "@ionic/storage"
 
 @Component({
   selector: 'page-login',
@@ -19,12 +18,6 @@ export class LoginPage implements OnInit {
   
   tipo: boolean;
   public formLogin: FormGroup;
-  myPassword;
-  myEmail;
-
-  item: any = {
-    //myEmail: "",
-  }
   
   constructor(
     public router: Router, 
@@ -93,11 +86,10 @@ export class LoginPage implements OnInit {
       .subscribe(
         resp => {
           console.log("esse é o token ", resp['token']);
-          console.log("esse é o id do usuário: ", resp['user'].id);
           //salvando o token
-          sessionStorage.setItem("token", resp['token']);
-          this.storage.set('token', resp['token']);
-          //this.storage.set('Usuario Logado', this.item);
+          sessionStorage.setItem('token', resp['token']);
+          this.storage.set('token', resp['token']); 
+          
           if (resp) { 
             console.log(resp);
             this.router.navigateByUrl('/home');
@@ -106,26 +98,41 @@ export class LoginPage implements OnInit {
             this.router.navigateByUrl('/login');
           }
         },e => {
-          alert(e);
-          this.loginAlert();
+          
+          this.loginAlert(e);
         },/*() => {
         }*/
       )}
   }
   
-  async loginAlert() {
-    const alert = await this.alertCtrl.create({
-      header: 'Aviso: Erro',
-      message: 'DADOS INCORRETOS POR FAVOR TENTE NOVAMENTE!',
-      buttons: [{
-        text: "OK",
-        handler: () => { }
-      }, {
-        text: "Cancelar",
-        role: 'cancel'
-      }]
-    })
-    alert.present();
+  async loginAlert(e) {
+
+    if(e.status == 401){
+
+      const alert = await this.alertCtrl.create({
+        cssClass: 'customAlert', 
+        header: 'Aviso: Erro 401',
+        message: 'EMAIL OU SENHA INCORRETOS, POR FAVOR VERIFIQUE E TENTE NOVAMENTE!',
+        buttons: [{
+          text: "OK",
+          handler: () => { }
+        }]
+      })
+      alert.present();
+    }else{
+
+      const alert = await this.alertCtrl.create({
+        cssClass: 'customAlert', 
+        header: 'Aviso: Erro ' + e.status,
+        message: 'OCORREU UM ERRO, POR FAVOR TENTE NOVAMENTE!',
+        buttons: [{
+          text: "OK",
+          handler: () => { }
+        }]
+      })
+      alert.present();
+    }
+    
   }
   
   //função do botão exibir e ocultar a senha

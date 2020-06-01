@@ -98,11 +98,11 @@ export class ConfiguracaoPage implements OnInit{
                   resp => {
                     if (resp) {
                       console.log('Resp: ', resp);
-                      this.presentToast(resp);                    
+                      this.presentToast(resp['success']);                    
                       this.navctrl.navigateRoot('/home');
                     } else {
                       console.log('Erro *Senha*', resp);
-                      this.presentToast(resp);
+                      this.presentToast(resp['error']);
                       
                     } 
                   },e => {

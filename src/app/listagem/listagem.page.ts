@@ -14,7 +14,7 @@ export class ListagemPage implements OnInit {
   monthNames = [{'mes':'January'}, {'mes':'February'}, {'mes':'March'}, {'mes':'April'}, {'mes':'May'}, {'mes':'June'}, {'mes':'July'}, {'mes':'August'}, {'mes':'September'}, {'mes':'October'}, {'mes':'November'}, {'mes':'December'}];
   meuPonto:any = [];
   coutDay;
-  cod = 'teste123';
+  cod = '';
 
   totalHours;
   hojeData;
@@ -40,35 +40,40 @@ export class ListagemPage implements OnInit {
   constructor(
     public navCtrl: NavController, 
     private apiServ: ApiProvider,
-    //public navParams: NavParams,
     private storage: Storage,
   ){
-    // Inicializa a lista de ponto com a data hoje
+    
+  }
+
+  ngOnInit(){}
+
+  ionViewWillEnter(){
+
+    // Inicializa a lista de ponto com o mes e o ano atuais
     this.dataHoje();
-    //this.getPointsList();
     
     this.storage.get('token').then((userToken)=>{
       this.getDataMe(userToken)
     });
   }
 
-  ngOnInit(){}
-
   getDataMe(userToken){
-  this.apiServ.getDataMe(userToken)
-  .subscribe(
-      data => {
-        //sessionStorage.setItem("token",  data.token);
-        //this.storage.set('token',  data.token);
-        this.cod = data['mobileuserid'];
-        this.getPointsList();
-        console.log('Data )=> ', data);
-      }
-    );
+  
+    this.apiServ.getDataMe(userToken)
+    .subscribe(
+        data => {
+          //sessionStorage.setItem("token",  data.token);
+          //this.storage.set('token',  data.token);
+          console.log('Data )=> ', data);
+          this.cod = data['user']['mobileuserid'];
+          this.getPointsList();
+        }
+      );
   }
 
   dataHoje(){
     let tempData = new Date().toISOString();
+    console.log('DATA: ', tempData);
     let mes = tempData.slice(5, 7)
     let date = {
       'ano':tempData.slice(0, 4),
@@ -81,7 +86,7 @@ export class ListagemPage implements OnInit {
 
   pesquisaData(){
     let date = {
-      'ano':'2020',
+      'ano': this.ano,
       'mes':this.mes
     }
     this.hojeData = date;    
@@ -96,6 +101,7 @@ export class ListagemPage implements OnInit {
         if(this.meuPonto.user.length>0){
           this.coutDay = this.meuPonto.count;
           this.calcHoras(this.meuPonto['posts']);
+          
         }else{
           this.coutDay = '0'
         }
