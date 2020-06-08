@@ -1,5 +1,4 @@
 import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
-import { FingerPrintProvider } from './services/finger-print-provider.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CodigoPageModule } from './codigo/codigo.module';
 import { DetailPageModule } from './detail/detail.module';
@@ -88,7 +87,6 @@ import { AppRoutingModule } from './app-routing.module';
     AuthProvider,
     ApiProvider, 
     HTTP, 
-    FingerPrintProvider, 
     FingerprintAIO, 
     NavigationBar
     ],
