@@ -219,12 +219,12 @@ export class AddPage {
 
       date = this.js_yyyy_mm_dd_hh_mm_ss();
 
-      alert(date);
       postid = this.makeid();
 
       this.DB.addPonto(auditor, title, spot, note, image, lat, lng, date, postid, userid, website, codepath)
         .then((data) => {
-          this.hideForm = true;
+          //setando variável para esconder os botões de registar e salvar
+          //this.hideForm = true;
           this.resetFields();
           this.sendNotification("foi adicionado à sua lista de auditor");
         });
@@ -416,6 +416,8 @@ export class AddPage {
           console.log(url2);
           console.log("it works!");
           this.presentToast('Dados do Ponto salvos no servidor da web');
+          this.showSucessAlert();
+          this.router.navigateByUrl('/home');
 
         } else {
           console.log("Falha! Os dados do Ponto não foram salvos no servidor da web");
@@ -426,13 +428,28 @@ export class AddPage {
         // this.presentToast( 'ERRO DE REDE!');
 
         const alert = await this.alertCtrl.create({
+          cssClass: 'customAlert',
           header: 'ERRO DE REDE! SEM INTERNET',
-          subHeader: 'Os dados do ponto não foram salvos no servidor da web',
+          subHeader: 'Os dados do ponto não foram salvos no servidor da web', 
           buttons: ['Next']
         });
         await alert.present();
+        this.router.navigateByUrl('/home');
       });
 
+  }
+
+  private async showSucessAlert(){
+
+    const alert = await this.alertCtrl.create({
+
+      cssClass: 'customAlert', 
+      header: 'AVISO', 
+      message: 'Ponto adicionado com sucesso!', 
+      buttons: ['Fechar']      
+    });
+
+    await alert.present();
   }
 
   private async presentToast(text) {

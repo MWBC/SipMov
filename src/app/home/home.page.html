@@ -15,7 +15,7 @@
     <ion-col size="auto">
       <ion-card *ngIf="showStartTrackButton">
           <ion-card-content>
-              <ion-item button color="primary" class="ion-text-center" (click)="startTrack();addPonto();fingerPrintDigital()">
+              <ion-item button color="primary" class="ion-text-center" (click)="startTrack();fingerPrintDigital()">
                 <ion-label><ion-icon class="teste" name="finger-print"></ion-icon>
                    <br><br> <h1>INICIAR</h1></ion-label>
                   
@@ -36,8 +36,19 @@
       </ion-card>
     </ion-col>
   </ion-row>
+
+  <!--Antiga estrutura de footer-->
+ <!-- <ion-item-group>
+    <ion-item class="text-center">
+        
+    </ion-item>
+     
+    <ion-item class="ion-text-center">
+      <ion-label>&copy; 2020 <br> Equipe de Desenvolvimento IPM</ion-label>
+    </ion-item>
+</ion-item-group> -->
   </ion-grid>
-  <br>
+  
   <!-- <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate"></ion-datetime> -->
   <!-- <ion-item text-center> -->
       <!-- <p>Latitude atual: {{locationTracker.lat}}</p>
@@ -45,15 +56,7 @@
       <p>Se você não ver os dados de localização, Ative no seu Celular.Obrigado.</p> -->
       
   <!-- </ion-item> -->
-      <ion-item-group>
-              <ion-item class="text-center">
-                  
-              </ion-item>
-               
-              <ion-item class="ion-text-center">
-                <ion-label>&copy; 2020 <br> Equipe de Desenvolvimento IPM</ion-label>
-              </ion-item>
-      </ion-item-group>
+
 
   <!-- <ion-list padding>
 
@@ -77,3 +80,11 @@
   <!-- <br><br><br> -->
   <!-- Desenvolvido por Antonio Carlos Franco.(FRANCO) -->
 </ion-content>
+
+<ion-footer>
+
+  <ion-toolbar>
+
+    <ion-title class="ion-text-center"><ion-label>&copy; 2020 <br> Equipe de Desenvolvimento IPM</ion-label></ion-title>
+  </ion-toolbar>
+</ion-footer>

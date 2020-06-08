@@ -13,15 +13,13 @@ import { Route, Router } from '@angular/router';
 
 export class ConfiguracaoPage implements OnInit{
 
-  //@ViewChild('ionNav') ionNav: IonNav;
-
   constructor(
     public router: Router,
     public navctrl: NavController,  
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     private authProv: AuthProvider, 
-    private storage: Storage,
+    private storage: Storage, 
   ){
   }
 
@@ -148,5 +146,4 @@ export class ConfiguracaoPage implements OnInit{
     this.openTodoAlert();
     this.storage.set('menuPage', 'CodigoPage');
   }
-
 }

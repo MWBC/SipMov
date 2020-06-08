@@ -33,7 +33,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar, 
     
-    private router: Router
+    private router: Router, 
   ) {
 
     this.initializeApp();
@@ -48,7 +48,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.hide();
       this.splashScreen.hide();
     });
   }

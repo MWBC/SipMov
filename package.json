@@ -36,6 +36,7 @@
     "@ionic-native/in-app-browser": "^5.26.0",
     "@ionic-native/ionic-webview": "^5.26.0",
     "@ionic-native/keyboard": "^5.26.0",
+    "@ionic-native/navigation-bar": "^5.26.0",
     "@ionic-native/network": "^5.26.0",
     "@ionic-native/splash-screen": "^5.26.0",
     "@ionic-native/sqlite": "^5.26.0",
@@ -65,6 +66,7 @@
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-mauron85-background-geolocation": "^3.0.1",
+    "cordova-plugin-navigationbar": "^1.0.31",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-sqlite-2": "^1.0.6",
@@ -162,7 +164,8 @@
       },
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "28.+"
-      }
+      },
+      "cordova-plugin-navigationbar": {}
     },
     "platforms": [
       "android",

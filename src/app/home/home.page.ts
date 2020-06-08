@@ -113,11 +113,10 @@ export class HomePage {
     if(result.isAvailable){
       this.androidFingerprintAuth.encrypt({ 
         clientId: 'myAppName', 
-        username: 'carlos', 
-        password: '123456', 
+        username: '', 
+        password: '', 
         locale: 'pt',
-        disableBackup: true, 
-        token: 'base64encodedUserCredentials' })
+        disableBackup: true })
         .then(result => {
            if (result.withFingerprint) {
                console.log('Successfully encrypted credentials.');
@@ -126,12 +125,13 @@ export class HomePage {
            } else if (result.withBackup) {
              console.log('Successfully authenticated with backup password!');
            } else console.log('Didn\'t authenticate!');
-        });
-        // .catch(error => {
-        //    if (error === this.androidFingerprintAuth.ERRORS.FINGERPRINT_CANCELLED) {
-        //      console.log('Fingerprint authentication cancelled');
-        //    } else console.error(error)
-        // });
+        })
+         .catch(error => {
+            if (error === this.androidFingerprintAuth.ERRORS.FINGERPRINT_CANCELLED) {
+              console.log('Fingerprint authentication cancelled');
+              this.stopTrack();
+            } else console.error(error)
+         });
 
     } else {
        

@@ -20,7 +20,8 @@
       
     <br><br>
 
-      <div *ngIf="hideForm">
+      <!--Torna visíveis as msgs de enviado com sucesso ou excluido com sucesso com base em variaveis boolean-->
+      <!--<div *ngIf="hideForm">
 
           <ion-item class="post-entry-message ion-text-wrap" *ngIf="!isDeleted">
 
@@ -33,7 +34,7 @@
             <br> <br>
               <h1>Seus dados foram excluídos com sucesso.</h1>
           </ion-item>
-      </div>
+      </div> -->
 
       <div *ngIf="!hideForm">
 
@@ -112,18 +113,28 @@
 
               </ion-item-group>
 
-              <ion-item-group>
+             <!-- <ion-item-group>
                   <ion-item>
                   </ion-item>
               </ion-item-group>
-              <ion-item-divider color="light"></ion-item-divider>
+              <ion-item-divider color="light"></ion-item-divider> -->
             </ion-grid>
           </form>
-          <ion-item-group>
+
+          <!--Antiga estrutura de footer-->
+          <!--<ion-item-group>
               <ion-item class="ion-text-center">
                   <ion-label>&copy; 2020 <br> Equipe de Desenvolvimento IPM</ion-label>
               </ion-item>
-          </ion-item-group>
+          </ion-item-group> -->
       </div>
   </div>
 </ion-content>
+
+<ion-footer>
+
+  <ion-toolbar>
+
+    <ion-title class="ion-text-center"><ion-label>&copy; 2020 <br> Equipe de Desenvolvimento IPM</ion-label></ion-title>
+  </ion-toolbar>
+</ion-footer>

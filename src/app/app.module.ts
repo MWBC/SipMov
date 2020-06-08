@@ -1,3 +1,5 @@
+import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
+import { FingerPrintProvider } from './services/finger-print-provider.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CodigoPageModule } from './codigo/codigo.module';
 import { DetailPageModule } from './detail/detail.module';
@@ -13,6 +15,7 @@ import { JwtHelper } from 'angular2-jwt';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { AuthProvider } from './services/auth/auth.service';
 
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -84,7 +87,10 @@ import { AppRoutingModule } from './app-routing.module';
     {provide: ErrorHandler, useClass: ErrorHandler}, Database, Image,
     AuthProvider,
     ApiProvider, 
-    HTTP
+    HTTP, 
+    FingerPrintProvider, 
+    FingerprintAIO, 
+    NavigationBar
     ],
   bootstrap: [AppComponent] //AppComponent
 })
