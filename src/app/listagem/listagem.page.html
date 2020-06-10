@@ -20,30 +20,25 @@
     <ion-col>
       <ion-item>
         <ion-label>Ano</ion-label>
-        <ion-select class="spaceSelect" [(ngModel)]="ano" name="ano" [selectOptions]="anoOptions">
-          <ion-select-option *ngFor="let ano of meuPonto?.anos; let i = index" [value]="ano[i]">{{ano.ano}}</ion-select-option>
+        <ion-select class="spaceSelect" [(ngModel)]="ano" name="ano">
+          <ion-select-option *ngFor="let ano of meuPonto?.anos;" value="{{ano.ano}}">{{ano.ano}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
     <ion-col>
       <ion-item>
         <ion-label>Mês</ion-label>
-        <ion-select class="spaceSelect" [(ngModel)]="mes" name="mes" [selectOptions]="mesOptions">
-          <ion-select-option *ngFor="let mes of monthNames; let i = index" [value]="mes[i]">{{mes.mes}}</ion-select-option>
+        <ion-select class="spaceSelect" [(ngModel)]="mes" name="mes">
+          <ion-select-option *ngFor="let mes of monthNames;" value="{{mes.month}}">{{mes.mes}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
   </ion-row>
 </div>
 
-<!-- <ion-item *ngFor="let ponto of meuPonto.posts | slice:0:1 ; index as i">
-  <div class = "row responsive-sm">
-    <div class = "col col-2">Mês {{ ponto.mes }}</div>
-  </div>
-</ion-item> -->
+
 
 <ion-list class="ion-padding-top">
-  <!-- <ion-row *ngIf="coutDay != '0'"> -->
     <ion-row>
     <ion-col>
       <ion-item>
@@ -55,19 +50,41 @@
     <ion-col>
       <ion-item>
         <div class = "row responsive-sm">
-          <div class = "col col-center">Total Horas/mês<br>{{ totalHours }}</div>
+          <div>Total Horas/mês<br>{{ totalHours }}</div>
         </div> 
       </ion-item >
     </ion-col>
   </ion-row>
 
   <ion-item *ngFor="let ponto of meuPonto.posts">
-    <div class = "row responsive-sm">
-      <div class = "col col-2">Dia<br> {{ ponto.dia }}</div>
-      <div class = "col">Entrada<br> {{ ponto.entrada }}</div>
-      <div class = "col">Saída<br> {{ ponto.saida }}</div>
-      <div class = "col">Hora/dia<br> {{ ponto.diferenca }}</div>
-    </div>
+
+    <ion-grid>
+
+    <ion-row>
+
+      <ion-col>
+
+        Dia<br> {{ponto.dia}}
+      </ion-col>
+
+      <ion-col>
+
+        Entrada<br> {{ponto.entrada}}
+      </ion-col>
+
+      <ion-col>
+
+        Saída<br> {{ponto.saida}}
+      </ion-col>
+
+      <ion-col>
+
+        Hora/dia<br> {{ponto.diferenca}}
+      </ion-col>
+    
+    </ion-row>
+  </ion-grid> 
+
   </ion-item>
   
 </ion-list>

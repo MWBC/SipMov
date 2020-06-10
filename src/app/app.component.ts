@@ -75,10 +75,4 @@ export class AppComponent {
       this.router.navigateByUrl('/login');
     })
   }
-
-  // logout() {
-  //   this.storage.set('token', '');
-  //   this.nav.setRoot(LoginPage);
-  //   //console.log('deslogado com sucesso.')
-  // }
 }

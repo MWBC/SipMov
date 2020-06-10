@@ -90,12 +90,14 @@ export class ConfiguracaoPage implements OnInit{
             console.log('dataUser: ', dataUser);
             if (dataUser.password != undefined && dataUser.newPassword != 
               undefined && dataUser.confirmNewPassword != undefined) {
-              if(dataUser.newPassword === dataUser.confirmNewPassword){
+              if(dataUser.newPassword === dataUser.confirmNewPassword && dataUser.newPassword != dataUser.password){
                 this.authProv.resetPassword(dataUser)
                 .subscribe(
                   resp => {
-                    if (resp) {
+                    if (resp['success']) {
                       console.log('Resp: ', resp);
+                      console.log('Novo token: ', resp['token']);
+                      this.storage.set('token', resp['token']);
                       this.presentToast(resp['success']);                    
                       this.navctrl.navigateRoot('/home');
                     } else {
@@ -110,7 +112,10 @@ export class ConfiguracaoPage implements OnInit{
                   }*/
                 )}
                 if(dataUser.newPassword != dataUser.confirmNewPassword){
-                  this.presentToast('Erro nova senha diferente!');
+                  this.presentToast('Erro, repetição da nova senha diferente da nova senha!');
+                }else if(dataUser.newPassword === dataUser.password){
+
+                  this.presentToast('Erro, a nova senha não pode ser igual a senha atual!');
                 }
                 // if(dataUser.password === "" && dataUser.newPassword === "" 
                 // && dataUser.confirmNewPassword === ""){

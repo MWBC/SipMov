@@ -13,6 +13,7 @@ import { ApiProvider } from './services/api/api.service';
 import { JwtHelper } from 'angular2-jwt';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { AuthProvider } from './services/auth/auth.service';
+import { ResendPointService } from './services/resend-point.service';
 
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
@@ -88,7 +89,8 @@ import { AppRoutingModule } from './app-routing.module';
     ApiProvider, 
     HTTP, 
     FingerprintAIO, 
-    NavigationBar
+    NavigationBar, 
+    ResendPointService
     ],
   bootstrap: [AppComponent] //AppComponent
 })

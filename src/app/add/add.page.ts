@@ -9,6 +9,7 @@ import {  FileTransferObject } from '@ionic-native/file-transfer';
 import { HttpClient } from '@angular/common/http';
 import { LocationTracker } from '../services/location-tracker.service';
 
+import { ResendPointService } from './../services/resend-point.service';
 import { AuthProvider } from '../services/auth/auth.service';
 import { Storage } from '@ionic/storage';
 
@@ -73,7 +74,8 @@ export class AddPage {
     public platform: Platform,
     public inAppBrowser: InAppBrowser,
     public modalCtrl: ModalController,
-    private httpLogin: AuthProvider
+    private httpLogin: AuthProvider, 
+    private resendpointservice: ResendPointService
 
   ) {
 
@@ -424,14 +426,20 @@ export class AddPage {
           console.log(resp);
         }
       }, async err => {
-        console.log(err);
+        console.log(err.status);
+
+        if(err.status === 0){
+
+          this.resendpointservice.resendPoint(obj);
+        }
+
         // this.presentToast( 'ERRO DE REDE!');
 
         const alert = await this.alertCtrl.create({
           cssClass: 'customAlert',
           header: 'ERRO DE REDE! SEM INTERNET',
           subHeader: 'Os dados do ponto não foram salvos no servidor da web', 
-          buttons: ['Next']
+          buttons: ['Fechar']
         });
         await alert.present();
         this.router.navigateByUrl('/home');

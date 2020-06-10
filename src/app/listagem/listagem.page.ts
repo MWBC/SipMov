@@ -11,7 +11,7 @@ import * as moment from 'moment';
 })
 export class ListagemPage implements OnInit {
 
-  monthNames = [{'mes':'January'}, {'mes':'February'}, {'mes':'March'}, {'mes':'April'}, {'mes':'May'}, {'mes':'June'}, {'mes':'July'}, {'mes':'August'}, {'mes':'September'}, {'mes':'October'}, {'mes':'November'}, {'mes':'December'}];
+  monthNames = [{'mes': 'Janeiro', 'month': 'January'}, {'mes': 'Fevereiro', 'month': 'February'}, {'mes': 'Março', 'month': 'March'}, {'mes': 'Abril', 'month': 'April'}, {'mes': 'Maio', 'month': 'May'}, {'mes': 'Junho', 'month': 'June'}, {'mes': 'Julho', 'month': 'July'}, {'mes': 'Agosto', 'month': 'August'}, {'mes': 'Setembro', 'month': 'September'}, {'mes': 'Outubro', 'month': 'October'}, {'mes': 'Novembro', 'month': 'November'}, {'mes': 'Dezembro', 'month': 'December'}];
   meuPonto:any = [];
   coutDay;
   cod = '';
@@ -22,16 +22,6 @@ export class ListagemPage implements OnInit {
   date;
   ano;
   mes;
-
-  anoOptions = {
-    title: 'Selecione o ano',
-    mode: 'md'
-  };
-
-  mesOptions = {
-    title: 'Selecione o mês',
-    mode: 'md'
-  };
 
   item: any = {
     mes: "",
@@ -77,7 +67,7 @@ export class ListagemPage implements OnInit {
     let mes = tempData.slice(5, 7)
     let date = {
       'ano':tempData.slice(0, 4),
-      'mes':this.monthNames[parseInt(mes)-1].mes
+      'mes':this.monthNames[parseInt(mes)-1].month
     }
     this.hojeData = date;
     //this.storage.set('mes', this.monthNames[parseInt(mes)-1].mes);
